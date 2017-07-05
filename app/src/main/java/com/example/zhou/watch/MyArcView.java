@@ -15,8 +15,8 @@ import android.widget.TextView;
 
 public class MyArcView extends TextView {
 
-    private RectF mRectF = new RectF(330, 50, 750, 470);
-    private RectF mRectF2 = new RectF(350, 70, 730, 450);
+    private RectF mRectF = new RectF(330, 330, 750, 750);
+    private RectF mRectF2 = new RectF(350, 350, 730, 730);
 
     private Paint mPaintGray = new Paint();
     private Paint mPaintOrange = new Paint();

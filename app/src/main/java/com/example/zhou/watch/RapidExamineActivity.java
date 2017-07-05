@@ -44,6 +44,7 @@ public class RapidExamineActivity extends AppCompatActivity{
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);   //加入切换动画
         transaction.replace(R.id.check_fragment, fragment);
+//        transaction.addToBackStack(null);
         transaction.commit();
     }
 }
