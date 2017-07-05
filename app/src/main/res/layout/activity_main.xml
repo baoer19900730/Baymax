@@ -5,38 +5,58 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context="com.example.zhou.watch.MainActivity">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
+        android:layout_weight="1"
+        android:fitsSystemWindows="true"
         android:background="@drawable/bg"
-        android:layout_weight="1">
+        android:orientation="vertical">
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp">
+            android:fitsSystemWindows="true"
+            android:layout_height="wrap_content">
+
             <TextView
-                android:layout_centerInParent="true"
-                android:text="智能体检"
+                android:fitsSystemWindows="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:textColor="#fff"/>
+                android:layout_centerInParent="true"
+                android:text="智能体检"
+                android:textColor="#fff"
+                android:textSize="25sp" />
+
             <Button
+                android:fitsSystemWindows="true"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:background="@drawable/back"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/back" />
         </RelativeLayout>
 
-         <com.example.zhou.watch.MyView
-             android:background="#00000000"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <com.example.zhou.watch.MyTextView
+               android:layout_centerInParent="true"
+               android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="#fe7f41"
+                android:textSize="32px"
+                android:text="快速体检"/>
+        </RelativeLayout>
+
+
 
     </LinearLayout>
 
@@ -64,7 +84,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20px"
+                    android:textSize="25px"
                     android:text="视力检测"/>
             </LinearLayout>
             
@@ -84,7 +104,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20px"
+                    android:textSize="25px"
                     android:text="听力检测"/>
             </LinearLayout>
             <LinearLayout
@@ -102,7 +122,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20px"
+                    android:textSize="25px"
                     android:text="肺活量测量"/>
             </LinearLayout>
         </LinearLayout>
@@ -125,7 +145,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20px"
+                    android:textSize="25px"
                     android:text="呼吸频率测量"/>
             </LinearLayout>
 
@@ -145,7 +165,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20px"
+                    android:textSize="25px"
                     android:text="心理检测"/>
             </LinearLayout>
             <LinearLayout

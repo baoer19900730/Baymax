@@ -5,26 +5,17 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.view.View;
+import android.widget.TextView;
 
 /**
- * Created by zhou on 2017/7/4.
+ * Created by zhou on 2017/7/5.
  */
 
-public class MyView extends View {
+public class MyTextView extends android.support.v7.widget.AppCompatTextView{
 
-    public MyView(Context context, AttributeSet attrs, int defStyle){
-        super(context,attrs,defStyle);
+    public MyTextView(Context context, AttributeSet attrs){
+        super(context, attrs);
     }
-
-    public MyView(Context context){
-        super(context);
-    }
-
-    public MyView(Context context, AttributeSet attrs){
-        super(context,attrs);
-    }
-
     @Override
     protected void onDraw(Canvas canvas) {
         Paint pa1 = new Paint();
