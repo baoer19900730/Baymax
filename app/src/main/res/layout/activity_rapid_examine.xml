@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#e0e0e0"
     android:orientation="vertical"
-    tools:context="com.example.zhou.watch.Checked">
+    tools:context="com.example.zhou.watch.RapidExamineActivity">
 
   <FrameLayout
       android:id="@+id/check_fragment"

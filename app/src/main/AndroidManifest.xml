@@ -12,7 +12,7 @@
         <activity android:name=".MainActivity">
 
         </activity>
-        <activity android:name=".Checked">
+        <activity android:name=".RapidExamineActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

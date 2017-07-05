@@ -9,15 +9,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Created by zhou on 2017/7/5.
+ * Created by zhou on 2017/7/5
  */
 
-public class Check2Fragment extends Fragment {
+public class RapidExamineFragment extends Fragment {
 
-    @Nullable
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.checked2, container, false);
+        View view = inflater.inflate(R.layout.rapid_examine, container, false);
         return view;
     }
 }
