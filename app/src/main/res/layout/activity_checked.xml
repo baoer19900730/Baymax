@@ -4,81 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#e0e0e0"
     android:orientation="vertical"
     tools:context="com.example.zhou.watch.Checked">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:orientation="vertical">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:fitsSystemWindows="true"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="#fe7f41">
+  <FrameLayout
+      android:id="@+id/check_fragment"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
 
-            <TextView
-                android:fitsSystemWindows="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="快速体检"
-                android:textColor="#fff"
-                android:textSize="20sp" />
-
-            <Button
-                android:fitsSystemWindows="true"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/back" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="测量原理"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="10dp"
-                android:layout_centerVertical="true"
-                android:textColor="#ffff"
-                android:textSize="15sp"/>
-        </RelativeLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:paddingLeft="18dp"
-            android:gravity="center_vertical"
-            android:textColor="#666666"
-            android:background="#eeeeee"
-            android:text="测量图示"
-            android:textSize="15sp"/>
-
-    </LinearLayout>
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="230dp"
-        android:src="@drawable/tell"/>
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:paddingLeft="18dp"
-        android:gravity="center_vertical"
-        android:textColor="#666666"
-        android:background="#eeeeee"
-        android:text="测量步骤"
-        android:textSize="15sp"/>
-    
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="200dp">
-
-    </LinearLayout>
+  </FrameLayout>
 </LinearLayout>
