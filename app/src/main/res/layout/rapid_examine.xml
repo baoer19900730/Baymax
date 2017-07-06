@@ -4,6 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1">
         <RelativeLayout
             android:layout_width="match_parent"
             android:fitsSystemWindows="true"
@@ -39,176 +44,162 @@
                 android:textSize="15sp"/>
         </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ffffff"
-        android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp">
-            <ImageView
-                android:paddingLeft="18dp"
-                android:layout_gravity="center"
-                android:scaleType="centerCrop"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/bp"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:paddingLeft="10dp"
-                android:textSize="20sp"
-                android:textColor="#333333"
-                android:text="血压: - -/- - "/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:text="mmHg"
-                android:textColor="#666666"
-                android:textSize="13dp"/>
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <ImageView
+                    android:paddingLeft="18dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/bp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:paddingLeft="10dp"
+                    android:textSize="20sp"
+                    android:textColor="#333333"
+                    android:text="血压: - -/- - "/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:text="mmHg"
+                    android:textColor="#666666"
+                    android:textSize="13dp"/>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e0e0e0"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <ImageView
+                    android:paddingLeft="18dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/hf"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:paddingLeft="10dp"
+                    android:textSize="20sp"
+                    android:textColor="#333333"
+                    android:text="心率: - -/- - "/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:text="次/分钟"
+                    android:textColor="#666666"
+                    android:textSize="13dp"/>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e0e0e0"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <ImageView
+                    android:paddingLeft="18dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/bo"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:paddingLeft="10dp"
+                    android:textSize="20sp"
+                    android:textColor="#333333"
+                    android:text="血氧：- -/- - "/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:text="%"
+                    android:textColor="#666666"
+                    android:textSize="13dp"/>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e0e0e0"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <ImageView
+                    android:paddingLeft="18dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/bf"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:paddingLeft="10dp"
+                    android:textSize="20sp"
+                    android:textColor="#333333"
+                    android:text="血液浓度：- -/- - "/>
+
+            </LinearLayout>
         </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#e0e0e0"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp">
-            <ImageView
-                android:paddingLeft="18dp"
-                android:layout_gravity="center"
-                android:scaleType="centerCrop"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/hf"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:paddingLeft="10dp"
-                android:textSize="20sp"
-                android:textColor="#333333"
-                android:text="心率: - -/- - "/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:text="次/分钟"
-                android:textColor="#666666"
-                android:textSize="13dp"/>
-        </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#e0e0e0"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp">
-            <ImageView
-                android:paddingLeft="18dp"
-                android:layout_gravity="center"
-                android:scaleType="centerCrop"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/bo"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:paddingLeft="10dp"
-                android:textSize="20sp"
-                android:textColor="#333333"
-                android:text="血氧：- -/- - "/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:text="%"
-                android:textColor="#666666"
-                android:textSize="13dp"/>
-        </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#e0e0e0"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp">
-            <ImageView
-                android:paddingLeft="18dp"
-                android:layout_gravity="center"
-                android:scaleType="centerCrop"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/bf"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:paddingLeft="10dp"
-                android:textSize="20sp"
-                android:textColor="#333333"
-                android:text="血液浓度：- -/- - "/>
-
-        </LinearLayout>
-
     </LinearLayout>
-   <RelativeLayout
-    android:layout_width="360dp"
-    android:layout_height="360dp">
-       <com.example.zhou.watch.MyArcView
-           android:background="#e0e0e0"
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:layout_centerInParent="true"
-           android:gravity="center"
 
-           />
-       <TextView
-           android:id="@+id/begin_text"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:textSize="24sp"
-           android:textColor="#333333"
-           android:layout_centerInParent="true"
-           android:text="开始测量"/>
-       <!--<TextView-->
-           <!--android:id="@+id/fail_text"-->
-           <!--android:layout_width="wrap_content"-->
-           <!--android:layout_height="wrap_content"-->
-           <!--android:layout_below="@+id/begin_text"-->
-           <!--android:layout_centerInParent="true"-->
-           <!--android:textSize="15sp"-->
-           <!--android:textColor="#ff4242"-->
-           <!--android:text="测量失败"/>-->
-       <!--<TextView-->
-           <!--android:id="@+id/again"-->
-           <!--android:layout_below="@+id/fail_text"-->
-           <!--android:layout_width="wrap_content"-->
-           <!--android:layout_height="wrap_content"-->
-           <!--android:textSize="15sp"-->
-           <!--android:textColor="#ff4242"-->
-           <!--android:layout_centerInParent="true"-->
-           <!--android:text="按住屏幕开始测量"/>-->
-   </RelativeLayout>
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <SurfaceView
+            android:id="@+id/main_surface_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.example.zhou.watch.MyArcView
+            android:id="@+id/begin_text"
+            android:background="#e0e0e0"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:textSize="24sp"
+            android:textColor="#333333"
+            android:text="开始测量"
+            android:gravity="center"
+            />
+
+    </FrameLayout>
 
 
 </LinearLayout>
