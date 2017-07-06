@@ -67,7 +67,17 @@
                     android:paddingLeft="10dp"
                     android:textSize="20sp"
                     android:textColor="#333333"
-                    android:text="血压: - -/- - "/>
+                    android:text="血压: "/>
+                <TextView
+                    android:id="@+id/xueya"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:paddingLeft="10dp"
+                    android:textSize="20sp"
+                    android:textColor="#333333"
+                    android:text=" - -/- - "/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -101,7 +111,17 @@
                     android:paddingLeft="10dp"
                     android:textSize="20sp"
                     android:textColor="#333333"
-                    android:text="心率: - -/- - "/>
+                    android:text="心率:"/>
+                <TextView
+                    android:id="@+id/xinlv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:paddingLeft="10dp"
+                    android:textSize="20sp"
+                    android:textColor="#333333"
+                    android:text=" - -"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -135,7 +155,17 @@
                     android:paddingLeft="10dp"
                     android:textSize="20sp"
                     android:textColor="#333333"
-                    android:text="血氧：- -/- - "/>
+                    android:text="血氧:"/>
+                <TextView
+                    android:id="@+id/xueyang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:paddingLeft="10dp"
+                    android:textSize="20sp"
+                    android:textColor="#333333"
+                    android:text=" - -"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -169,7 +199,17 @@
                     android:paddingLeft="10dp"
                     android:textSize="20sp"
                     android:textColor="#333333"
-                    android:text="血液浓度：- -/- - "/>
+                    android:text="呼吸率:"/>
+                <TextView
+                    android:id="@+id/breath"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:paddingLeft="10dp"
+                    android:textSize="20sp"
+                    android:textColor="#333333"
+                    android:text=" - - "/>
 
             </LinearLayout>
         </LinearLayout>

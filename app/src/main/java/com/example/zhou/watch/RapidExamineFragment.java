@@ -22,44 +22,90 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import com.oudmon.algo.ppg.PpgAnalyzer;
+
 import java.io.IOException;
 
 /**
  * Created by zhou on 2017/7/5
  */
 
-public class RapidExamineFragment extends Fragment implements SurfaceHolder.Callback{
+public class RapidExamineFragment extends Fragment implements SurfaceHolder.Callback, Camera.PreviewCallback{
 
     private static final String TAG = "RapidExamineFragment";
     private SurfaceView surfaceView;
     private SurfaceHolder surfaceHolder;
     private   Camera camera;
+    private int index = 0;
+    private int length = 16;
+    private PpgAnalyzer ppgAnalyzer = new PpgAnalyzer();
+    private float[] imageHue = new float[length];
+    private float[] imageRed = new float[length];
+    private float[] imageBlue = new float[length];
+    private TextView xueya;
+    private TextView xinlv;
+    private TextView xueyang;
+    private TextView nongdu;
+    boolean b = true;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.rapid_examine, container, false);
+        xueya = (TextView) view.findViewById(R.id.xueya);
+        xinlv = (TextView) view.findViewById(R.id.xinlv);
+        xueyang = (TextView) view.findViewById(R.id.xueyang);
+        nongdu = (TextView) view.findViewById(R.id.breath);
         TextView startText = (TextView) view.findViewById(R.id.begin_text);
         surfaceView = (SurfaceView) view.findViewById(R.id.main_surface_view);  //拿到surfaceView对象
-
+        surfaceView.setVisibility(View.INVISIBLE);
         surfaceHolder = surfaceView.getHolder();    //SurfaceView在创建的时候，就会自动生成一个Holder，这个对象后期我们有用，所以保存到全局变量
         surfaceHolder.addCallback(this);            //SurfaceView需要一个回调，用于告诉你，什么时候开始创建，什么时候创建完成，什么时候销毁，也就是下面的那三个方法
         surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);// 设置显示器类型，setType必须设置   Holder必须要设置成这个类型，才能支持显示摄像头数据
         surfaceHolder.setFormat(PixelFormat.TRANSLUCENT);   //这一句不知道什么意思
-
         startText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                surfaceView.setVisibility(View.VISIBLE);
                 startPreview();
+
             }
         });
         return view;
     }
 
+    @Override
+    public void onPreviewFrame(byte[] data, Camera camera) {
+        if (b){  //如果手指一直在测量
+            ppgAnalyzer = ppgAnalyzer.ppgImageAlgo(data, 352, 288); //图像处理
+            imageHue[index] = ppgAnalyzer.getHue();  //从图像中得到灰色数组元素
+            imageBlue[index] = ppgAnalyzer.getBlue();//从图像中得到蓝色数组元素
+            imageRed[index] = ppgAnalyzer.getRed();//从图像中得到红色数组元素
+            index++;  //角标增加
+            if (index >= length){ //如果角标大于数组的长度就开始计算，并且角标把角标设为0
+                index = 0;
+                int xinLv= ppgAnalyzer.ppgInstantHrAlgo(imageHue, 16); //心率算法
+                Log.d("TAC", imageHue.length+"");
+                xinlv.setText(xinLv+"");
+                float huXi = ppgAnalyzer.ppgRespirAlgo(imageHue, 16);  //呼吸算法
+                nongdu.setText(huXi+"");
+                PpgAnalyzer xueYa = ppgAnalyzer.ppgBpAlgo(xinLv); //血压计算
+                int sbp = xueYa.getSbp();
+                int dbp = xueYa.getDbp();
+                xueya.setText(sbp+"/"+dbp);
+                float xueYang = ppgAnalyzer.ppgSao2Algo(imageRed, imageBlue, 16); //血氧计算
+                xueyang.setText(xueYang+"");
+                b = false;
+            }
+        }
+    }
 
     /**
      * 调用摄像头
      */
     public void startPreview() {
+
         Log.i(TAG, "startPreview.. ");
         if (camera == null) {
             try {
@@ -70,7 +116,7 @@ public class RapidExamineFragment extends Fragment implements SurfaceHolder.Call
                 camera.setParameters(params);   //把参数设置好了后，传回给Camera
                 camera.startPreview();  //开始预览，意思就是开始显示在SurfaceView上面了
                 camera.setDisplayOrientation(90);  //旋转90度，如果不调用这个，会发现报像头是横着的，你可以试下注释掉这一行
-                //camera.setPreviewCallback(this);  //可以给摄像头设置一个回调对象，报像头每采集一些数据，都会回调回来，1秒钟可能采集几十次数据，会回调几十次，这个数据用来计算心率血压等值的
+                camera.setPreviewCallback(this);  //可以给摄像头设置一个回调对象，报像头每采集一些数据，都会回调回来，1秒钟可能采集几十次数据，会回调几十次，这个数据用来计算心率血压等值的
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -105,6 +151,7 @@ public class RapidExamineFragment extends Fragment implements SurfaceHolder.Call
      */
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+
             //camera.startPreview();
         Log.i(TAG, "surfaceChanged..");
         //startPreview();
@@ -123,6 +170,8 @@ public class RapidExamineFragment extends Fragment implements SurfaceHolder.Call
              camera = null;
          }
     }
+
+
 }
 
 

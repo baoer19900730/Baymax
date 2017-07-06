@@ -10,6 +10,13 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        sourceSets.main.jniLibs.srcDirs = ['src/main/libs'] //把so文件加进来
+
+        ndk {
+            moduleName "PpgAlgo"  //生成的so名字
+            abiFilters "armeabi", "armeabi-v7a"
+        }
     }
     buildTypes {
         release {
