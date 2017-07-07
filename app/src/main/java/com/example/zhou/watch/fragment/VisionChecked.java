@@ -36,8 +36,8 @@ public class VisionChecked extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.shi_li:
-                shili.setTextColor(0xffFF5E42);
-                shili.setBackgroundColor(0xccFFFFFF);
+                shili.setTextColor(0xffFF5E42); //修改文字颜色
+                shili.setBackgroundColor(0xccFFFFFF);   //修改背景颜色
                 replaceFragment(new VisionCheck1());
                 break;
             case R.id.se_mang:
