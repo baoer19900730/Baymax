@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_marginTop="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#fe7f41"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:text="测左眼"/>
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="保持手机在眼前40厘米处挡住右眼，选择E的朝向"/>
+    <TextView
+        android:layout_marginTop="30dp"
+        android:id="@+id/e_text"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="80sp"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="80dp" />
+    <RelativeLayout
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/e_up"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/up"/>
+        <ImageView
+            android:id="@+id/e_left"
+            android:layout_below="@+id/e_up"
+            android:layout_toLeftOf="@+id/e_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/left"/>
+        <ImageView
+            android:id="@+id/e_right"
+            android:layout_below="@+id/e_up"
+            android:layout_toRightOf="@+id/e_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/right"/>
+        <ImageView
+            android:id="@+id/e_down"
+            android:layout_below="@+id/e_right"
+            android:layout_toLeftOf="@+id/e_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/down"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="测试结果："/>
+    <LinearLayout
+        android:layout_gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginLeft="100dp"
+            android:text="左眼："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/result_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="_ _"/>
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:text="右眼："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/result_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="_ _"/>
+
+    </LinearLayout>
+
+</LinearLayout>

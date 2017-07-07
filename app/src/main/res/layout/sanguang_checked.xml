@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_marginTop="25dp"
+        android:layout_gravity="center"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:src="@drawable/sanguang"/>
+
+    <TextView
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="较粗的黑线在？"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="3点方向"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/touming"
+            android:textColor="#666666"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="6点方向"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/touming"
+            android:textColor="#666666"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="各向线条粗细均匀"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/touming"
+            android:textColor="#666666"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="以上都不对"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/touming"
+            android:textColor="#666666"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/start_checked"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/shape"
+        android:text="提交"
+        android:textColor="#ffff"
+        android:textSize="15sp" />
+</LinearLayout>

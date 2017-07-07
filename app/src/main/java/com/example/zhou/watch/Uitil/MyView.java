@@ -1,21 +1,30 @@
-package com.example.zhou.watch;
+package com.example.zhou.watch.Uitil;
 
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.widget.TextView;
+import android.view.View;
 
 /**
- * Created by zhou on 2017/7/5.
+ * Created by zhou on 2017/7/4.
  */
 
-public class MyTextView extends android.support.v7.widget.AppCompatTextView{
+public class MyView extends View {
 
-    public MyTextView(Context context, AttributeSet attrs){
-        super(context, attrs);
+    public MyView(Context context, AttributeSet attrs, int defStyle){
+        super(context,attrs,defStyle);
     }
+
+    public MyView(Context context){
+        super(context);
+    }
+
+    public MyView(Context context, AttributeSet attrs){
+        super(context,attrs);
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
         Paint pa1 = new Paint();

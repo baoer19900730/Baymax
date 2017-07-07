@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:layout_width="200dp"
+        android:layout_height="250dp"
+        android:src="@drawable/man"/>
+    <TextView
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#fe7f41"
+        android:textStyle="bold"
+        android:text="手机在眼前40厘米处挡住右眼"/>
+    <Button
+       android:id="@+id/start_checked"
+       android:layout_width="330dp"
+       android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+       android:background="@drawable/shape"
+       android:text="开始测量"
+       android:textColor="#ffff"
+        android:textSize="15sp" />
+
+</LinearLayout>

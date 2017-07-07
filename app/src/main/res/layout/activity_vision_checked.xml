@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.zhou.watch.fragment.VisionChecked">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:fitsSystemWindows="true"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#fe7f41">
+
+        <TextView
+            android:fitsSystemWindows="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="快速体检"
+            android:textColor="#fff"
+            android:textSize="20sp" />
+
+        <Button
+            android:fitsSystemWindows="true"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/back" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:background="#fe7f41"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <Button
+            android:background="#33ffffff"
+            android:id="@+id/shi_li"
+            android:layout_width="1dp"
+            android:textColor="#ffffff"
+            android:layout_height="match_parent"
+            android:text="视力测试"
+            android:layout_weight="1"/>
+        <Button
+            android:background="#33ffffff"
+            android:id="@+id/se_mang"
+            android:layout_width="1dp"
+            android:textColor="#ffffff"
+            android:layout_height="match_parent"
+            android:text="色盲测试"
+            android:layout_weight="1"/>
+        <Button
+            android:background="#33ffffff"
+            android:id="@+id/minggd"
+            android:layout_width="1dp"
+            android:textColor="#ffffff"
+            android:layout_height="match_parent"
+            android:text="颜色敏感度"
+            android:layout_weight="1"/>
+        <Button
+            android:background="#33ffffff"
+            android:id="@+id/sanguang"
+            android:layout_width="1dp"
+            android:textColor="#ffffff"
+            android:layout_height="match_parent"
+            android:text="散光测试"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_gravity="center"
+        android:id="@+id/vision_checked"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+
+</LinearLayout>
