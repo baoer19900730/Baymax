@@ -77,7 +77,7 @@ public class RapidExamineFragment extends Fragment implements SurfaceHolder.Call
 
     @Override
     public void onPreviewFrame(byte[] data, Camera camera) {
-        if (b){  //如果手指一直在测量
+        for (int i = 0; i < 1000; i++){  //如果手指一直在测量
             ppgAnalyzer = ppgAnalyzer.ppgImageAlgo(data, 352, 288); //图像处理
             imageHue[index] = ppgAnalyzer.getHue();  //从图像中得到灰色数组元素
             imageBlue[index] = ppgAnalyzer.getBlue();//从图像中得到蓝色数组元素

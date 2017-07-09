@@ -30,7 +30,8 @@ public class VisionChecked extends AppCompatActivity implements View.OnClickList
         minggd.setOnClickListener(this);                 //注册点击事件
         sanguang.setOnClickListener(this);              //注册点击事件
         replaceFragment(new VisionCheck1());
-
+        shili.setTextColor(0xffFF5E42); //修改文字颜色
+        shili.setBackgroundColor(0xccFFFFFF);   //修改背景颜色
     }
     @Override
     public void onClick(View v) {
@@ -39,15 +40,33 @@ public class VisionChecked extends AppCompatActivity implements View.OnClickList
                 shili.setTextColor(0xffFF5E42); //修改文字颜色
                 shili.setBackgroundColor(0xccFFFFFF);   //修改背景颜色
                 replaceFragment(new VisionCheck1());
+                semang.setBackgroundColor(0x33FFFFFF);
+                minggd.setBackgroundColor(0x33FFFFFF);
+                sanguang.setBackgroundColor(0x33FFFFFF);
                 break;
             case R.id.se_mang:
+                semang.setTextColor(0xffFF5E42);
+                semang.setBackgroundColor(0xccFFFFFF);
                 replaceFragment(new SemangChecked());
+                shili.setBackgroundColor(0x33FFFFFF);
+                minggd.setBackgroundColor(0x33FFFFFF);
+                sanguang.setBackgroundColor(0x33FFFFFF);
                 break;
             case R.id.minggd:
+                minggd.setTextColor(0xffFF5E42);
+                minggd.setBackgroundColor(0xccFFFFFF);
                 replaceFragment(new MinggdChecked());
+                semang.setBackgroundColor(0x33FFFFFF);
+                shili.setBackgroundColor(0x33FFFFFF);
+                sanguang.setBackgroundColor(0x33FFFFFF);
                 break;
             case R.id.sanguang:
+                sanguang.setTextColor(0xffFF5E42);
+                sanguang.setBackgroundColor(0xccFFFFFF);
                 replaceFragment(new SanguangChecked());
+                semang.setBackgroundColor(0x33FFFFFF);
+                minggd.setBackgroundColor(0x33FFFFFF);
+                shili.setBackgroundColor(0x33FFFFFF);
                 break;
             default:
                 break;
