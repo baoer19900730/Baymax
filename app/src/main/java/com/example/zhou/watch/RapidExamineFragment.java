@@ -2,6 +2,7 @@ package com.example.zhou.watch;
 
 
 import android.Manifest;
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 
@@ -23,6 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.zhou.watch.Uitil.MyArcView;
 import com.oudmon.algo.ppg.PpgAnalyzer;
 
 import java.io.IOException;
@@ -48,6 +50,8 @@ public class RapidExamineFragment extends Fragment implements SurfaceHolder.Call
     private TextView xueyang;
     private TextView nongdu;
     boolean b = true;
+    private MyArcView startText;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -56,7 +60,7 @@ public class RapidExamineFragment extends Fragment implements SurfaceHolder.Call
         xinlv = (TextView) view.findViewById(R.id.xinlv);
         xueyang = (TextView) view.findViewById(R.id.xueyang);
         nongdu = (TextView) view.findViewById(R.id.breath);
-        TextView startText = (TextView) view.findViewById(R.id.begin_text);
+        startText = (MyArcView) view.findViewById(R.id.begin_text);
         surfaceView = (SurfaceView) view.findViewById(R.id.main_surface_view);  //拿到surfaceView对象
         surfaceView.setVisibility(View.INVISIBLE);
         surfaceHolder = surfaceView.getHolder();    //SurfaceView在创建的时候，就会自动生成一个Holder，这个对象后期我们有用，所以保存到全局变量
@@ -66,9 +70,12 @@ public class RapidExamineFragment extends Fragment implements SurfaceHolder.Call
         startText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 surfaceView.setVisibility(View.VISIBLE);
-                startPreview();
+//                startPreview();
+//                ObjectAnimator animator1 = ObjectAnimator.ofArgb(v, "textColor",0xd0d0d0, 0xffbf42);
+                ObjectAnimator animator = ObjectAnimator.ofFloat(startText, "degree", 0, 360);
+                animator.setDuration(10000);
+                animator.start();
 
             }
         });

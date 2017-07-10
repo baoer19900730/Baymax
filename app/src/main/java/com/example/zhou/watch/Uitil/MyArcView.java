@@ -1,5 +1,6 @@
 package com.example.zhou.watch.Uitil;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -13,7 +14,7 @@ import android.widget.TextView;
  * Created by jxr20 on 2017/7/5
  */
 
-public class MyArcView extends TextView {
+public class MyArcView extends android.support.v7.widget.AppCompatTextView {
 
     private RectF mRectF = new RectF(330, 330, 750, 750);
     private RectF mRectF2 = new RectF(350, 350, 730, 730);
@@ -23,6 +24,8 @@ public class MyArcView extends TextView {
 
     private Paint mPaintGray2 = new Paint();
     private Paint mPaintWhite = new Paint();
+
+    private float degree = 0 ;
 
     public MyArcView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -52,6 +55,12 @@ public class MyArcView extends TextView {
         //mPaintWhite.setStyle(Paint.Style.STROKE); //画实心的弧，和画圆一样的效果
     }
 
+    public void  setDegree(Float degree){
+        this.degree = degree;
+        invalidate();
+
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
 
@@ -59,7 +68,7 @@ public class MyArcView extends TextView {
         canvas.drawArc(mRectF2, 0, 360, false, mPaintGray2);    //画中间的灰弧，0度开始，画360度，就是画圆
 
         canvas.drawArc(mRectF, 0, 360, false, mPaintGray);      //画外面的灰弧，0度开始，画360度，效果就是一个圆
-        canvas.drawArc(mRectF, -90, 270, false, mPaintOrange);  //画外面的橙色弧，从-90度，度数270度，刚好3/4个圆
+        canvas.drawArc(mRectF, -90, degree, false, mPaintOrange);  //画外面的橙色弧，从-90度，度数270度，刚好3/4个圆
 
         super.onDraw(canvas);
     }
