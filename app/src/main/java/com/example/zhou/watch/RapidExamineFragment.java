@@ -2,6 +2,8 @@ package com.example.zhou.watch;
 
 
 import android.Manifest;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -71,10 +73,24 @@ public class RapidExamineFragment extends Fragment implements SurfaceHolder.Call
             @Override
             public void onClick(View v) {
                 surfaceView.setVisibility(View.VISIBLE);
-//                startPreview();
-//                ObjectAnimator animator1 = ObjectAnimator.ofArgb(v, "textColor",0xd0d0d0, 0xffbf42);
+                startPreview();
                 ObjectAnimator animator = ObjectAnimator.ofFloat(startText, "degree", 0, 360);
                 animator.setDuration(10000);
+                animator.addListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {//动画结束
+                        super.onAnimationEnd(animation);
+                        b = false;
+                        surfaceView.setVisibility(View.INVISIBLE);
+                    }
+
+                    @Override
+                    public void onAnimationStart(Animator animation) { //动画开始
+                        super.onAnimationStart(animation);
+                        b = true;
+
+                    }
+                });
                 animator.start();
 
             }
@@ -84,26 +100,25 @@ public class RapidExamineFragment extends Fragment implements SurfaceHolder.Call
 
     @Override
     public void onPreviewFrame(byte[] data, Camera camera) {
-        for (int i = 0; i < 1000; i++){  //如果手指一直在测量
+        if (b){
             ppgAnalyzer = ppgAnalyzer.ppgImageAlgo(data, 352, 288); //图像处理
             imageHue[index] = ppgAnalyzer.getHue();  //从图像中得到灰色数组元素
             imageBlue[index] = ppgAnalyzer.getBlue();//从图像中得到蓝色数组元素
             imageRed[index] = ppgAnalyzer.getRed();//从图像中得到红色数组元素
             index++;  //角标增加
-            if (index >= length){ //如果角标大于数组的长度就开始计算，并且角标把角标设为0
+            if (index >= length) { //如果角标大于数组的长度就开始计算，并且角标把角标设为0
                 index = 0;
-                int xinLv= ppgAnalyzer.ppgInstantHrAlgo(imageHue, 16); //心率算法
-                Log.d("TAC", imageHue.length+"");
-                xinlv.setText(xinLv+"");
+                int xinLv = ppgAnalyzer.ppgInstantHrAlgo(imageHue, 16); //心率算法
+                xinlv.setText(xinLv + "");
                 float huXi = ppgAnalyzer.ppgRespirAlgo(imageHue, 16);  //呼吸算法
-                nongdu.setText(huXi+"");
+                nongdu.setText(huXi + "");
                 PpgAnalyzer xueYa = ppgAnalyzer.ppgBpAlgo(xinLv); //血压计算
                 int sbp = xueYa.getSbp();
                 int dbp = xueYa.getDbp();
-                xueya.setText(sbp+"/"+dbp);
+                xueya.setText(sbp + "/" + dbp);
                 float xueYang = ppgAnalyzer.ppgSao2Algo(imageRed, imageBlue, 16); //血氧计算
-                xueyang.setText(xueYang+"");
-                b = false;
+                xueyang.setText(xueYang + "");
+
             }
         }
     }
@@ -172,6 +187,7 @@ public class RapidExamineFragment extends Fragment implements SurfaceHolder.Call
     public void surfaceDestroyed(SurfaceHolder holder) {
         Log.i(TAG, "surfaceDestroyed..");
          if (null != camera){
+             camera.setPreviewCallback(null);
              camera.stopPreview();
              camera.release();
              camera = null;

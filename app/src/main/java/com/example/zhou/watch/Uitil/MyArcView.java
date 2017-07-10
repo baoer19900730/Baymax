@@ -55,7 +55,7 @@ public class MyArcView extends android.support.v7.widget.AppCompatTextView {
         //mPaintWhite.setStyle(Paint.Style.STROKE); //画实心的弧，和画圆一样的效果
     }
 
-    public void  setDegree(Float degree){
+    public void  setDegree(float degree){
         this.degree = degree;
         invalidate();
 
