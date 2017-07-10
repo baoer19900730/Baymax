@@ -22,6 +22,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,6 +54,7 @@ public class RapidExamineFragment extends Fragment implements SurfaceHolder.Call
     private TextView nongdu;
     boolean b = true;
     private MyArcView startText;
+    private Button back;
 
 
     @Override
@@ -69,10 +71,18 @@ public class RapidExamineFragment extends Fragment implements SurfaceHolder.Call
         surfaceHolder.addCallback(this);            //SurfaceView需要一个回调，用于告诉你，什么时候开始创建，什么时候创建完成，什么时候销毁，也就是下面的那三个方法
         surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);// 设置显示器类型，setType必须设置   Holder必须要设置成这个类型，才能支持显示摄像头数据
         surfaceHolder.setFormat(PixelFormat.TRANSLUCENT);   //这一句不知道什么意思
+        back = (Button) view.findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((RapidExamineActivity) getActivity()).replaceFragment(0);
+            }
+        });
         startText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 surfaceView.setVisibility(View.VISIBLE);
+                startText.setText("正在测量");
                 startPreview();
                 ObjectAnimator animator = ObjectAnimator.ofFloat(startText, "degree", 0, 360);
                 animator.setDuration(10000);

@@ -43,32 +43,35 @@ public class SemangChecked extends Fragment {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                total ++;
-                Log.d("输入的数字", seenNumber.getText().toString());
-                Log.d("图片中数字", pictureNumber);
-                if (seenNumber.getText() != null && seenNumber.getText().toString().equals(pictureNumber)){
-                    right ++;
-                    Toast.makeText(getActivity(), "You are right", Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(getActivity(), "You are wrong", Toast.LENGTH_SHORT).show();
+                if (!seenNumber.getText().toString().equals("")){
+                    total ++;
+                    if (seenNumber.getText() != null && seenNumber.getText().toString().equals(pictureNumber)){
+                        right ++;
+                        Toast.makeText(getActivity(), "You are right", Toast.LENGTH_SHORT).show();
+                    }else {
+                        Toast.makeText(getActivity(), "You are wrong", Toast.LENGTH_SHORT).show();
 
-                }
-                select();
-                seenNumber.setText("");
-                if (total >= 10){
-                    next.setText("查看结果");
-                    next.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            if (right >=7){
-                                ((VisionChecked)getActivity()).replaceFragment(new SemangChecked1());
-                            }else {
-                                ((VisionChecked)getActivity()).replaceFragment(new SemangChecked2());
+                    }
+                    select();
+                    seenNumber.setText("");
+                    if (total >= 10){
+                        next.setText("查看结果");
+                        next.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                if (right >=7){
+                                    ((VisionChecked)getActivity()).replaceFragment(new SemangChecked1());
+                                }else {
+                                    ((VisionChecked)getActivity()).replaceFragment(new SemangChecked2());
+                                }
                             }
-                        }
-                    });
+                        });
+                    }
+                }else {
+                    Toast.makeText(getActivity(), "请输入你看到的数字" , Toast.LENGTH_SHORT).show();
                 }
-            }
+                }
+
         });
         return view;
     }

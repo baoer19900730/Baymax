@@ -26,6 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
+            android:id="@+id/three_button"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
@@ -34,6 +35,7 @@
             android:background="@drawable/touming"
             android:textColor="#666666"/>
         <Button
+            android:id="@+id/six_button"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
@@ -50,6 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
+            android:id="@+id/same_button"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
@@ -58,6 +61,7 @@
             android:background="@drawable/touming"
             android:textColor="#666666"/>
         <Button
+            android:id="@+id/wrong_button"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
@@ -68,7 +72,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/start_checked"
+        android:id="@+id/submit_button"
         android:layout_width="330dp"
         android:layout_height="50dp"
         android:layout_gravity="center"

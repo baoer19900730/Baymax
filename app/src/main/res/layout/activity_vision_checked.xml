@@ -23,6 +23,7 @@
             android:textSize="20sp" />
 
         <Button
+            android:id="@+id/vision_back"
             android:fitsSystemWindows="true"
             android:layout_width="25dp"
             android:layout_height="25dp"

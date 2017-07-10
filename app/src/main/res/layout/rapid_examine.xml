@@ -24,6 +24,7 @@
                 android:textSize="20sp" />
 
             <Button
+                android:id="@+id/back"
                 android:fitsSystemWindows="true"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
@@ -235,6 +236,11 @@
             android:text="开始测量"
             android:gravity="center"
             />
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="请勿移动手指"-->
+            <!--android:layout_gravity="center"/>-->
 
 
     </FrameLayout>
