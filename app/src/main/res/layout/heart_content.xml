@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/zero_score"
+            android:layout_width="match_parent"
+            android:textColor="#666666"
+            android:layout_height="wrap_content"
+            android:text="没有"/>
+        <RadioButton
+            android:id="@+id/two_score"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#666666"
+            android:text="偶尔"/>
+        <RadioButton
+            android:id="@+id/four_score"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#666666"
+            android:text="经常"/>
+        <RadioButton
+            android:id="@+id/six_score"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#666666"
+            android:text="几乎不间断"/>
+        <RadioButton
+            android:background="#666666"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"/>
+
+    </RadioGroup>
+
+</LinearLayout>

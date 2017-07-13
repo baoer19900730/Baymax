@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="450dp">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:text="1.悲伤：你是否一直感到伤心或悲伤"/>
+                <include layout="@layout/heart_content"/>
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="2.泄气：你是否感到前景渺茫"
+                    android:textColor="#000000"/>
+                <include layout="@layout/heart_content"/>
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="3.缺乏自尊心：你是否觉得自己没有价值或自认为是一个失败者"
+                    android:textColor="#000000"/>
+                <include layout="@layout/heart_content"/>
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="4：自卑：你是否觉得力不从心或自叹比不上别人？"
+                    android:textColor="#000000"/>
+                <include layout="@layout/heart_content"/>
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="5.内奸：你是否对任何事都很自责"
+                    android:textColor="#000000"/>
+                <include layout="@layout/heart_content"/>
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="6.犹豫：你是否在做决定是犹豫不决？"
+                    android:textColor="#000000"/>
+                <include layout="@layout/heart_content"/>
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="7.焦躁不安：这段时间你是否一直处于愤怒和不满状态？"
+                    android:textColor="#000000"/>
+                <include layout="@layout/heart_content"/>
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="8.对生活丧失动机：你是否感到一蹶不振，做事情毫无动力？"
+                    android:textColor="#000000"/>
+                <include layout="@layout/heart_content"/>
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="9丧失动机：你是否感到一蹶不振，做事情毫无动力？"
+                    android:textColor="#000000"/>
+                <include layout="@layout/heart_content"/>
+
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="10.自我印象可怜：你是否以为自己已衰老或失去魅力"
+                    android:textColor="#000000"/>
+                <include layout="@layout/heart_content"/>
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="11.食欲变化：你是否感到食欲不振或情不自禁的暴饮暴食？"
+                    android:textColor="#000000"/>
+                <include layout="@layout/heart_content"/>
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="12.失眠变化：你是否患有失眠症？或整体感到体力不支，昏昏欲睡？"
+                    android:textColor="#000000"/>
+                <include layout="@layout/heart_content"/>
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="13.丧失性欲：你是否丧失了对性的兴趣？"
+                    android:textColor="#000000"/>
+                <include layout="@layout/heart_content"/>
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="14.臆想症：你是否经常担心自己的健康？"
+                    android:textColor="#000000"/>
+                <include layout="@layout/heart_content"/>
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="15：自杀冲动：你是否认为生存没有价值，或者不如死？"
+                    android:textColor="#000000"/>
+                <include layout="@layout/heart_content"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/heart_start"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape"
+        android:text="开始测量"
+        android:textColor="#ffff"
+        android:textSize="15sp" />
+
+</LinearLayout>

@@ -24,6 +24,7 @@
                 android:textSize="25sp" />
 
             <Button
+                android:id="@+id/hear_back"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_alignParentLeft="true"
