@@ -156,7 +156,7 @@
                 android:orientation="vertical"
                 android:layout_weight="1">
                 <Button
-                    android:id="@+id/check"
+                    android:id="@+id/heart_checked"
                     android:layout_width="50sp"
                     android:layout_height="50sp"
                     android:layout_gravity="center"

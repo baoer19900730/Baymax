@@ -15,18 +15,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+
+        <activity android:name=".MainActivity"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RapidExamineActivity" />
-        <activity android:name=".fragment.VisionChecked" />
-        <activity android:name=".HearChecked" />
-        <activity android:name=".LungChecked" />
-        <activity android:name=".BreathChecked"></activity>
+        <activity android:name=".RapidExamineActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".fragment.VisionChecked"
+            android:launchMode="singleTask"/>
+        <activity android:name=".HearChecked"
+            android:launchMode="singleTask"/>
+        <activity android:name=".LungChecked"
+            android:launchMode="singleTask"/>
+        <activity android:name=".BreathChecked"
+            android:launchMode="singleTask"/>
+        <activity android:name=".HeartChecked"
+            android:launchMode="singleTask">
+        </activity>
     </application>
 
 </manifest>
