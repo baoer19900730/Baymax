@@ -13,11 +13,14 @@
         android:textSize="15sp"
         android:text="在规定时间内，尽可能找出颜色不同的方块"/>
 
-    <ImageView
-        android:layout_marginTop="30dp"
-        android:layout_gravity="center"
+    <TableLayout
+        android:id="@+id/table"
         android:layout_width="300dp"
-        android:layout_height="300dp" />
+        android:layout_height="300dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center" >
+
+    </TableLayout>
 
     <Button
         android:id="@+id/start_checked"
