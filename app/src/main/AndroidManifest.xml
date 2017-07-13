@@ -22,12 +22,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RapidExamineActivity">
-
-        </activity>
-        <activity android:name=".fragment.VisionChecked">
-
-        </activity>
+        <activity android:name=".RapidExamineActivity" />
+        <activity android:name=".fragment.VisionChecked" />
+        <activity android:name=".HearChecked" />
+        <activity android:name=".LungChecked" />
+        <activity android:name=".BreathChecked"></activity>
     </application>
 
 </manifest>

@@ -27,6 +27,11 @@ import butterknife.Unbinder;
 
 public class MinggdChecked extends Fragment implements View.OnClickListener {
 
+    private long r;
+    private long g;
+    private long b;
+    private long color;
+
     private static final String TAG = "Baymax";
 
     public final int WRAP_CONTENT = ViewGroup.LayoutParams.WRAP_CONTENT;
@@ -52,8 +57,17 @@ public class MinggdChecked extends Fragment implements View.OnClickListener {
     @Nullable @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.minggd_checked, container, false);
+
         unbinder = ButterKnife.bind(this, view);    //ButterKnife资源绑定,该操作相当于帮我们findViewById了
         createButton();
+
+        r = Math.round(Math.random()* 234 ) + 20;
+        g = Math.round(Math.random()* 234 ) + 20;
+        b = Math.round(Math.random()* 234 ) + 20;
+        color = r + g + b;  //TODO => 这是什么鬼，这样子怎么可能出颜色？
+
+//        Log.d(TAG, "r " + r);
+
         return view;
     }
 
@@ -95,7 +109,7 @@ public class MinggdChecked extends Fragment implements View.OnClickListener {
         int r = (int) (Math.round(Math.random() * 234) + 20);
         int g = (int) (Math.round(Math.random() * 234) + 20);
         int b = (int) (Math.round(Math.random() * 234) + 20);
-        mColor = Color.rgb(r, g, b);
+        mColor = Color.rgb(r, g, b);    //通过三种颜色值构建一个Color
         mDiffColor = Color.rgb(r - 15, g - 15, b - 15);
         mIndex = mRandom.nextInt(step * step);
         Log.i(TAG, "initColor.. mIndex: " + mIndex + ", r: " + r + ", g: " + g + ", b: " + b);
