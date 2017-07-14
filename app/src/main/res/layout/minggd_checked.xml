@@ -23,6 +23,8 @@
 
     </TableLayout>
 
+
+
    <com.example.zhou.watch.Uitil.MyRectangle
        android:layout_width="300dp"
        android:layout_height="300dp"
@@ -36,7 +38,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
         android:background="@drawable/shape"
-        android:text="60s"
+        android:text="开始测量"
         android:textColor="#ffff"
         android:textSize="15sp" />
 

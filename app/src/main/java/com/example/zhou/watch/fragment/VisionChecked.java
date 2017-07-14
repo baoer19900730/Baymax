@@ -64,7 +64,7 @@ public class VisionChecked extends AppCompatActivity implements View.OnClickList
             case R.id.minggd:
                 minggd.setTextColor(0xffFF5E42);
                 minggd.setBackgroundColor(0xccFFFFFF);
-                replaceFragment(new MinggdChecked());
+                replaceFragment(new MingGD());
                 semang.setBackgroundColor(0x33FFFFFF);
                 shili.setBackgroundColor(0x33FFFFFF);
                 sanguang.setBackgroundColor(0x33FFFFFF);
