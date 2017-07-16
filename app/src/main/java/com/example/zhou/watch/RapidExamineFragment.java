@@ -6,6 +6,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 
 import android.graphics.PixelFormat;
@@ -23,6 +24,7 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,13 +50,16 @@ public class RapidExamineFragment extends Fragment implements SurfaceHolder.Call
     private float[] imageHue = new float[length];
     private float[] imageRed = new float[length];
     private float[] imageBlue = new float[length];
-    private TextView xueya;
-    private TextView xinlv;
-    private TextView xueyang;
-    private TextView nongdu;
+    public TextView xueya;
+    public TextView xinlv;
+    public TextView xueyang;
+    public TextView nongdu;
     boolean b = true;
     private MyArcView startText;
     private Button back;
+    private LinearLayout checkResult;
+    private Button checkAgain;
+    private Button checkSave;
 
 
     @Override
@@ -65,6 +70,10 @@ public class RapidExamineFragment extends Fragment implements SurfaceHolder.Call
         xueyang = (TextView) view.findViewById(R.id.xueyang);
         nongdu = (TextView) view.findViewById(R.id.breath);
         startText = (MyArcView) view.findViewById(R.id.begin_text);
+        checkResult = (LinearLayout) view.findViewById(R.id.check_result);
+        checkAgain = (Button)view.findViewById(R.id.check_again);
+        checkSave = (Button)view.findViewById(R.id.check_save);
+
         surfaceView = (SurfaceView) view.findViewById(R.id.main_surface_view);  //拿到surfaceView对象
         surfaceView.setVisibility(View.INVISIBLE);
         surfaceHolder = surfaceView.getHolder();    //SurfaceView在创建的时候，就会自动生成一个Holder，这个对象后期我们有用，所以保存到全局变量
@@ -85,13 +94,30 @@ public class RapidExamineFragment extends Fragment implements SurfaceHolder.Call
                 startText.setText("正在测量");
                 startPreview();
                 ObjectAnimator animator = ObjectAnimator.ofFloat(startText, "degree", 0, 360);
-                animator.setDuration(10000);
+                animator.setDuration(20000);
                 animator.addListener(new AnimatorListenerAdapter() {
                     @Override
-                    public void onAnimationEnd(Animator animation) {//动画结束
+                    public void onAnimationEnd(final Animator animation) {//动画结束
                         super.onAnimationEnd(animation);
                         b = false;
+                        startText.setVisibility(View.INVISIBLE);
                         surfaceView.setVisibility(View.INVISIBLE);
+                        checkResult.setVisibility(View.VISIBLE);
+                        checkAgain.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                checkResult.setVisibility(View.INVISIBLE);
+                                startText.setVisibility(View.VISIBLE);
+                                ObjectAnimator animator1 = ObjectAnimator.ofFloat(startText, "degree", 0, 0);
+                                animator1 .start();
+                            }
+                        });
+                        checkSave.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                ((RapidExamineActivity)getActivity()).saveResult();
+                            }
+                        });
                     }
 
                     @Override
@@ -107,6 +133,8 @@ public class RapidExamineFragment extends Fragment implements SurfaceHolder.Call
         });
         return view;
     }
+
+
 
     @Override
     public void onPreviewFrame(byte[] data, Camera camera) {

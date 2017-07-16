@@ -1,10 +1,12 @@
 package com.example.zhou.watch;
 
 
+import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 public class RapidExamineActivity extends AppCompatActivity{
 
@@ -46,5 +48,15 @@ public class RapidExamineActivity extends AppCompatActivity{
         transaction.replace(R.id.check_fragment, fragment);
 //        transaction.addToBackStack(null);
         transaction.commit();
+    }
+    public void saveResult(){
+        SharedPreferences.Editor editor = getSharedPreferences("result", MODE_PRIVATE).edit();
+        RapidExamineFragment ref = (RapidExamineFragment) getSupportFragmentManager().findFragmentById(R.id.check_fragment);
+        editor.putString("血压",ref.xueya.getText().toString());
+        editor.putString("心率",ref.xinlv.getText().toString());
+        editor.putString("血氧", ref.xueyang.getText().toString());
+        editor.putString("呼吸率", ref.nongdu.getText().toString());
+        editor.apply();
+        Toast.makeText(this ,"保存成功",Toast.LENGTH_SHORT).show();
     }
 }

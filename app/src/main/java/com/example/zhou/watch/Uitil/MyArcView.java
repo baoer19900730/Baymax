@@ -70,6 +70,7 @@ public class MyArcView extends android.support.v7.widget.AppCompatTextView {
         canvas.drawArc(mRectF, 0, 360, false, mPaintGray);      //画外面的灰弧，0度开始，画360度，效果就是一个圆
         canvas.drawArc(mRectF, -90, degree, false, mPaintOrange);  //画外面的橙色弧，从-90度，度数270度，刚好3/4个圆
 
+
         super.onDraw(canvas);
     }
 }
