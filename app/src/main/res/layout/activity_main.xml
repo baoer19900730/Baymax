@@ -45,7 +45,7 @@
             android:layout_height="0dp"
             android:layout_weight="1">
 
-            <com.example.zhou.watch.Uitil.MyTextView
+            <com.example.zhou.watch.MyTextView
                 android:id="@+id/quick_checked"
                android:layout_centerInParent="true"
                android:gravity="center"

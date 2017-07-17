@@ -7,6 +7,8 @@
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -25,22 +27,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RapidExamineActivity"
+            android:name=".Rapid.RapidExamineActivity"
             android:launchMode="singleTask" />
         <activity
             android:name=".fragment.VisionChecked"
             android:launchMode="singleTask" />
         <activity
-            android:name=".HearChecked"
+            android:name=".Hear.HearChecked"
             android:launchMode="singleTask" />
         <activity
-            android:name=".LungChecked"
+            android:name=".Lung.LungChecked"
             android:launchMode="singleTask" />
         <activity
-            android:name=".BreathChecked"
+            android:name=".Breath.BreathChecked"
             android:launchMode="singleTask" />
         <activity
-            android:name=".HeartChecked"
+            android:name=".Heart.HeartChecked"
             android:launchMode="singleTask"></activity>
 
         <service

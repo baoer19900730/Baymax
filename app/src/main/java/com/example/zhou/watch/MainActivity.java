@@ -1,15 +1,17 @@
 package com.example.zhou.watch;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.zhou.watch.Breath.BreathChecked;
+import com.example.zhou.watch.Hear.HearChecked;
+import com.example.zhou.watch.Heart.HeartChecked;
+import com.example.zhou.watch.Lung.LungChecked;
+import com.example.zhou.watch.Rapid.RapidExamineActivity;
 import com.example.zhou.watch.fragment.VisionChecked;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {

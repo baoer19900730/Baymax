@@ -276,7 +276,7 @@
         </LinearLayout>
 
 
-        <com.example.zhou.watch.Uitil.MyArcView
+        <com.example.zhou.watch.Rapid.MyArcView
             android:id="@+id/begin_text"
             android:layout_width="360dp"
             android:layout_height="360dp"

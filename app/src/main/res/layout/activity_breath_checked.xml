@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.zhou.watch.BreathChecked">
+    tools:context="com.example.zhou.watch.Breath.BreathChecked">
 
     <RelativeLayout
         android:background="#fe7f41"
@@ -46,7 +46,7 @@
         android:gravity="center"
         android:textColor="#666666"/>
 
-    <com.example.zhou.watch.Uitil.MyRectangle
+    <com.example.zhou.watch.Breath.MyRectangle
         android:id="@+id/breath_round"
         android:layout_width="300dp"
         android:layout_height="300dp" />
