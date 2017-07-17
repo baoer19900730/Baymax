@@ -85,25 +85,81 @@
             android:gravity="center"
             android:textSize="18sp"
             android:textColor="#ff6942"/>
-        <TextView
+        <LinearLayout
             android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/hear_min"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="- - "
+                android:gravity="center"
+                android:textSize="25sp"
+                android:textColor="#fe7f41"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Hz 至 "
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textColor="#666666"/>
+            <TextView
+                android:id="@+id/hear_max"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="- -"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:textColor="#fe7f41"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Hz"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textColor="#666666"/>
+        </LinearLayout>
+
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="- - Hz至 - - Hz"
-            android:gravity="center"
-            android:textSize="25sp"
-            android:textColor="#666666"/>
+            android:layout_marginTop="40dp">
+            <Button
+                android:id="@+id/hear_start"
+                android:layout_width="330dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="@drawable/shape"
+                android:text="开始测量"
+                android:textColor="#ffff"
+                android:textSize="15sp" />
 
-        <Button
-            android:id="@+id/hear_start"
-            android:layout_width="330dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/shape"
-            android:text="开始测量"
-            android:textColor="#ffff"
-            android:textSize="15sp" />
+            <Button
+                android:id="@+id/hear_inaudibility"
+                android:layout_margin="20dp"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_gravity="left"
+                android:background="@drawable/red"
+                android:text="听不见"
+                android:textColor="#fe7f41"
+                android:visibility="invisible"
+                android:textSize="15sp" />
+            <Button
+                android:id="@+id/hear_audibility"
+                android:layout_margin="20dp"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_gravity="right"
+                android:background="@drawable/shape"
+                android:text="听得见"
+                android:visibility="invisible"
+                android:textColor="#ffff"
+                android:textSize="15sp" />
+        </FrameLayout>
 
     </LinearLayout>
 

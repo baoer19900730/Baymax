@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaPlayer;
@@ -19,6 +20,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.zhou.watch.MainActivity;
@@ -34,11 +36,17 @@ public class HearChecked extends AppCompatActivity implements View.OnClickListen
     private RecordThread mRecordThread;
 
     private Button hearBack;  //返回键
-    private MySiri mySiri;
+    private MySiri mySiri;    //
     private Handler mHandler;
 
     private Button hearStart; //开始测量
+    private Button  hearInaudibility; //听不见
+    private Button hearAudibility;   //听得见
     private MediaPlayer player; //音频
+    private TextView hearMin;
+    private TextView hearMax;
+
+    private int decibel = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +55,12 @@ public class HearChecked extends AppCompatActivity implements View.OnClickListen
         hearBack = (Button) findViewById(R.id.hear_back);
         mySiri = (MySiri) findViewById(R.id.siri_view);
         hearStart = (Button) findViewById(R.id.hear_start);
+        hearInaudibility = (Button) findViewById(R.id.hear_inaudibility);
+        hearAudibility = (Button) findViewById(R.id.hear_audibility);
+        hearMax = (TextView) findViewById(R.id.hear_max);
+        hearMin = (TextView)findViewById(R.id.hear_min) ;
+        hearAudibility.setOnClickListener(this);
+        hearInaudibility.setOnClickListener(this);
         hearStart.setOnClickListener(this);
         hearBack.setOnClickListener(this);
         mHandler = new Handler(new Handler.Callback() {
@@ -68,7 +82,24 @@ public class HearChecked extends AppCompatActivity implements View.OnClickListen
                 startActivity(earIntent);
                 break;
             case R.id.hear_start:
-                 applyPermission();
+                hearMax.setText("- -");
+                hearMin.setText("- -");
+                decibel = 0;
+                hearStart.setVisibility(View.INVISIBLE);
+                hearAudibility.setVisibility(View.VISIBLE);
+                hearInaudibility.setVisibility(View.VISIBLE);
+                applyPermission();
+                break;
+            case R.id.hear_inaudibility:
+                hearInaudibility.setVisibility(View.INVISIBLE);
+                hearAudibility.setVisibility(View.INVISIBLE);
+                hearStart.setVisibility(View.VISIBLE);
+                hearStart.setText("再测一次");
+                break;
+            case R.id.hear_audibility:
+                hearMin.setText("200");
+                decibel += 200;
+                hearMax.setText(decibel+"");
                 break;
         }
     }
@@ -78,22 +109,21 @@ public class HearChecked extends AppCompatActivity implements View.OnClickListen
                 != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(HearChecked.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
         }else {
-          initMedia(HearChecked.this, "audio_200hz.m4a");
+          initMedia();
         }
     }
 
-    private void initMedia(Context context, String path){  //准备播放音频
+    private void initMedia(){  //准备播放音频
         try {
-            AssetFileDescriptor file = context.getAssets().openFd(path);
-            File f = new File(path);
-            FileInputStream inputStream = new FileInputStream(f);
+            AssetManager assetManager = this.getAssets();
+            AssetFileDescriptor afd = assetManager.openFd("audio_200hz.m4a");
             if (player == null){
                 player = new MediaPlayer();
             }
             player.reset();
-            player.setDataSource(inputStream.getFD());
-            player.setDataSource(file.getFileDescriptor(), file.getStartOffset(), file.getLength());
-            player.setLooping(true);
+
+            player.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
+            player.setLooping(true); //音乐循环播放
             player.prepare();
             player.start();
         }catch (Exception e){
@@ -106,7 +136,7 @@ public class HearChecked extends AppCompatActivity implements View.OnClickListen
         switch (requestCode){
             case 1:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                    initMedia(HearChecked.this, "audio_200hz.m4a");
+                    initMedia();
                 }else {
                     Toast.makeText(HearChecked.this, "拒绝访问", Toast.LENGTH_SHORT).show();
                 }
@@ -129,6 +159,15 @@ public class HearChecked extends AppCompatActivity implements View.OnClickListen
             mRecordThread = null;
         }
         super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (player != null){
+            player.stop();
+            player.release();
+        }
+        super.onDestroy();
     }
 
     private void update(final float volume) {
