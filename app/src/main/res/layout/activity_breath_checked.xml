@@ -47,10 +47,12 @@
         android:textColor="#666666"/>
 
     <com.example.zhou.watch.Uitil.MyRectangle
+        android:id="@+id/breath_round"
         android:layout_width="300dp"
         android:layout_height="300dp" />
 
     <Button
+        android:id="@+id/breath_start"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_gravity="center"

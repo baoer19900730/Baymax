@@ -43,7 +43,12 @@ public class SanguangChecked extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.submit_button:
-                ((VisionChecked)getActivity()).replaceFragment(new SanGuangCheck1());
+                if(sameButton.getTextColors().equals(0xffFF5d42)){
+                    ((VisionChecked)getActivity()).replaceFragment(new SanGuangCheck1());
+                }else {
+                    ((VisionChecked)getActivity()).replaceFragment(new sanGuangCheck2());
+                }
+
             case R.id.three_button:
                 threeButton.setTextColor(0xffFF5d42);
                 sixButton.setTextColor(0xff333333);

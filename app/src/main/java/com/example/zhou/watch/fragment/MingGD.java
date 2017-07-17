@@ -1,5 +1,6 @@
 package com.example.zhou.watch.fragment;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -34,7 +35,7 @@ public class MingGD extends Fragment implements View.OnClickListener {
     private Random random = new Random();
     private TableLayout mTable;
     private int total;
-    private int time = 60;
+    public int time = 60;
     private Button start;
     private Button button;
 
@@ -49,10 +50,10 @@ public class MingGD extends Fragment implements View.OnClickListener {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for (int i = 60; i>0; i--) {
-                    start.setText(i + "s");
-                }
-                error();
+              start.setText( time + "s");
+                Intent intent = new Intent(getActivity(), Countdown.class);
+                intent.putExtra("time",time);
+                getActivity().startService(intent);
             }
 
         });

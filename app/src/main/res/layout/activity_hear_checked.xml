@@ -49,6 +49,12 @@
             android:textSize="20sp"
             android:textColor="#ffffff"/>
 
+        <com.example.zhou.watch.Uitil.MySiri
+            android:id="@+id/siri_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

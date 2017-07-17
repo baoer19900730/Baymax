@@ -93,47 +93,57 @@ public class RapidExamineFragment extends Fragment implements SurfaceHolder.Call
                 surfaceView.setVisibility(View.VISIBLE);
                 startText.setText("正在测量");
                 startPreview();
-                ObjectAnimator animator = ObjectAnimator.ofFloat(startText, "degree", 0, 360);
-                animator.setDuration(20000);
-                animator.addListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(final Animator animation) {//动画结束
-                        super.onAnimationEnd(animation);
-                        b = false;
-                        startText.setVisibility(View.INVISIBLE);
-                        surfaceView.setVisibility(View.INVISIBLE);
-                        checkResult.setVisibility(View.VISIBLE);
-                        checkAgain.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                checkResult.setVisibility(View.INVISIBLE);
-                                startText.setVisibility(View.VISIBLE);
-                                ObjectAnimator animator1 = ObjectAnimator.ofFloat(startText, "degree", 0, 0);
-                                animator1 .start();
-                            }
-                        });
-                        checkSave.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                ((RapidExamineActivity)getActivity()).saveResult();
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void onAnimationStart(Animator animation) { //动画开始
-                        super.onAnimationStart(animation);
-                        b = true;
-
-                    }
-                });
-                animator.start();
-
+                animator();
             }
         });
         return view;
     }
 
+    private void animator(){
+        ObjectAnimator animator = ObjectAnimator.ofFloat(startText, "degree", 0, 360);
+        animator.setDuration(5000);
+        animator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(final Animator animation) {//动画结束
+                super.onAnimationEnd(animation);
+                b = false;
+                startText.setVisibility(View.INVISIBLE);
+                surfaceView.setVisibility(View.INVISIBLE);
+                checkResult.setVisibility(View.VISIBLE);
+                checkAgain.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        checkResult.setVisibility(View.INVISIBLE);
+                        startText.setVisibility(View.VISIBLE);
+                        surfaceView.setVisibility(View.VISIBLE);
+                        ObjectAnimator animator1 = ObjectAnimator.ofFloat(startText, "degree", 0, 0);
+                        animator1 .start();
+                        xueya.setText("- -");
+                        xinlv.setText("- -");
+                        xueyang.setText("- -");
+                        nongdu.setText("- -");
+                        animator();
+                        startPreview();
+                    }
+                });
+                checkSave.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ((RapidExamineActivity)getActivity()).saveResult();
+                    }
+                });
+            }
+
+            @Override
+            public void onAnimationStart(Animator animation) { //动画开始
+                super.onAnimationStart(animation);
+                b = true;
+
+            }
+        });
+        animator.start();
+
+    }
 
 
     @Override
