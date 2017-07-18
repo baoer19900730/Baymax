@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -19,6 +20,7 @@ public class VisionChecked extends AppCompatActivity implements View.OnClickList
     private Button minggd;
     private Button sanguang;
     private Button visionBack;
+    private int total;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +83,13 @@ public class VisionChecked extends AppCompatActivity implements View.OnClickList
                 break;
         }
 
+    }
+
+    protected void setTotal(int total){
+        this.total = total;
+    }
+    protected int getTotal(){
+        return total;
     }
 
     public void replaceFragment(Fragment fragment){   //更换碎片方法

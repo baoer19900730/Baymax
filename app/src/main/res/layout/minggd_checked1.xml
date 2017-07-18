@@ -13,16 +13,29 @@
         android:layout_width="200dp"
         android:layout_height="200dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="15dp"
-        android:textColor="#333333"
-        android:textSize="15sp"
-        android:text="你一共通过："
-        android:inputType="number"
-        />
+        android:layout_marginLeft="15dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#333333"
+            android:textSize="15sp"
+            android:text="你一共通过："
+            />
+        <TextView
+            android:id="@+id/minggd_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textSize="30dp"
+            android:textColor="#fe7f41"/>
+    </LinearLayout>
+
+
+
     <Button
         android:id="@+id/minggd1_again"
         android:layout_width="330dp"

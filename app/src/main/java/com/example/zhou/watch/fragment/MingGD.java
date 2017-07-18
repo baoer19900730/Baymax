@@ -3,8 +3,11 @@ package com.example.zhou.watch.fragment;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +18,8 @@ import android.widget.TableRow;
 import com.example.zhou.watch.R;
 
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by zhou on 2017/7/14.
@@ -34,10 +39,26 @@ public class MingGD extends Fragment implements View.OnClickListener {
     private int index;
     private Random random = new Random();
     private TableLayout mTable;
-    private int total;
+    private int total=0;
     public int time = 60;
     private Button start;
     private Button button;
+    private Timer mTimer;
+
+    private Handler handler = new Handler(){
+        public void handleMessage(Message msg){
+            if (msg.what ==1) {
+                if (time > 0) {
+                    start.setText(time + "s");
+                }else {
+                    if (mTimer != null){
+                        mTimer.cancel();
+                    }
+                    ((VisionChecked)getActivity()).replaceFragment(new MingGD1());
+                }
+            }
+        }
+    };
 
 
     @Nullable
@@ -47,18 +68,28 @@ public class MingGD extends Fragment implements View.OnClickListener {
         mTable = (TableLayout) view.findViewById(R.id.table);
         start = (Button) view.findViewById(R.id.start_checked);
         initButton();
+
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              start.setText( time + "s");
-                Intent intent = new Intent(getActivity(), Countdown.class);
-                intent.putExtra("time",time);
-                getActivity().startService(intent);
+                    countdown();
             }
-
         });
 
         return view;
+    }
+
+    private void countdown(){
+        mTimer = new Timer();
+        mTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Message message = new Message();
+                message.what =1;
+                handler.sendMessage(message);
+                time --;
+            }
+        }, 0, 1000);
     }
 
     private void initColor(){
@@ -68,6 +99,33 @@ public class MingGD extends Fragment implements View.OnClickListener {
         mColor = Color.rgb(r, g, b);
         difColor = Color.rgb((r - 15), (g - 15), (b - 15));
         mIndex = random.nextInt(step * step);
+    }
+
+
+    @Override
+    public void onClick(View v) {
+       if (v.getId() == mIndex){
+           total += 1;
+           ((VisionChecked)getActivity()).setTotal(total);
+           next();
+       }else {
+           error();
+       }
+    }
+
+
+
+
+    private void next(){
+        step ++;
+        if (step> 8){
+            step = 8;
+        }
+        initButton();
+    }
+
+    private void error(){
+        ((VisionChecked)getActivity()).replaceFragment(new MingGD1());
     }
 
     private void initButton(){
@@ -97,24 +155,4 @@ public class MingGD extends Fragment implements View.OnClickListener {
         }
     }
 
-    @Override
-    public void onClick(View v) {
-       if (v.getId() == mIndex){
-           next();
-       }else {
-           error();
-       }
-    }
-
-    private void next(){
-        step ++;
-        total ++;
-        if (step> 8){
-            step = 8;
-        }
-        initButton();
-    }
-    private void error(){
-        ((VisionChecked)getActivity()).replaceFragment(new MingGD1());
-    }
 }
