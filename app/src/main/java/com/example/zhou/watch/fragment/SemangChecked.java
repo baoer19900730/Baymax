@@ -54,7 +54,7 @@ public class SemangChecked extends Fragment {
                     }
                     select();
                     seenNumber.setText("");
-                    if (total >= 10){
+                    if (total >= 7){
                         next.setText("查看结果");
                         next.setOnClickListener(new View.OnClickListener() {
                             @Override

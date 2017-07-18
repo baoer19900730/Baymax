@@ -19,23 +19,24 @@ import com.example.zhou.watch.R;
 
 public class MingGD1 extends Fragment {
 
-    private Button again;
+    private Button minggdAgain;
     private TextView minggdTotal;  //总共过关
-    private int total;
+    private int pass;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.minggd_checked1, container, false);
-        again = (Button) view.findViewById(R.id.minggd1_again);
+        minggdAgain = (Button) view.findViewById(R.id.minggd1_again);
         minggdTotal = (TextView) view.findViewById(R.id.minggd_total);
-        again.setOnClickListener(new View.OnClickListener() {
+        minggdAgain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ((VisionChecked)getActivity()).setTotal(0);
                 ((VisionChecked)getActivity()).replaceFragment(new MingGD());
             }
         });
-        total = ((VisionChecked)getActivity()).getTotal();
-        Log.d("MingCD1", total +"");
-        minggdTotal.setText(total + "关");
+        pass = ((VisionChecked)getActivity()).getTotal();
+        Log.d("MingCD1", pass +"");
+        minggdTotal.setText(pass + "关");
         return view;
     }
 }

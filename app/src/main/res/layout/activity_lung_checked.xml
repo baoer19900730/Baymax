@@ -30,37 +30,10 @@
             android:background="@drawable/back" />
     </RelativeLayout>
 
-    <TextView
-        android:layout_marginTop="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="请在安静的环境下测试"
-        android:gravity="center"
-        android:textSize="18sp"
-        android:textColor="#ff6942"/>
-    <TextView
-        android:layout_marginTop="15dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="深吸一口气，对准手机下端麦克风缓缓吹气"
-        android:gravity="center"
-        android:textColor="#666666"/>
+  <FrameLayout
+      android:id="@+id/replace_lung"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
 
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_gravity="center"
-        android:src="@drawable/wind"
-        android:layout_marginTop="50dp"/>
-
-    <Button
-        android:layout_width="330dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/shape"
-        android:text="开始测量"
-        android:textColor="#ffff"
-        android:textSize="15sp" />
-
+  </FrameLayout>
 </LinearLayout>

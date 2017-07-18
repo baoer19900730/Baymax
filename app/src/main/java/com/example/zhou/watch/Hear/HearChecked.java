@@ -91,6 +91,9 @@ public class HearChecked extends AppCompatActivity implements View.OnClickListen
                 applyPermission();
                 break;
             case R.id.hear_inaudibility:
+                if (player != null) {
+                    player.stop();
+                }
                 hearInaudibility.setVisibility(View.INVISIBLE);
                 hearAudibility.setVisibility(View.INVISIBLE);
                 hearStart.setVisibility(View.VISIBLE);

@@ -40,24 +40,22 @@ public class MingGD extends Fragment implements View.OnClickListener {
     private Random random = new Random();
     private TableLayout mTable;
     private int total=0;
-    public int time = 60;
+    public int time = 30;
     private Button start;
     private Button button;
     private Timer mTimer;
+    private boolean startB; //判断是否点击开始测量
 
     private Handler handler = new Handler(){
         public void handleMessage(Message msg){
             if (msg.what ==1) {
-                if (time > 0) {
                     start.setText(time + "s");
-                }else {
-                    if (mTimer != null){
+                    if (time <= 0){
                         mTimer.cancel();
+                        ((VisionChecked)getActivity()).replaceFragment(new MingGD1());
                     }
-                    ((VisionChecked)getActivity()).replaceFragment(new MingGD1());
                 }
             }
-        }
     };
 
 
@@ -68,11 +66,13 @@ public class MingGD extends Fragment implements View.OnClickListener {
         mTable = (TableLayout) view.findViewById(R.id.table);
         start = (Button) view.findViewById(R.id.start_checked);
         initButton();
-
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (startB ==false){
                     countdown();
+                }
+                startB = true;
             }
         });
 
@@ -104,17 +104,16 @@ public class MingGD extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-       if (v.getId() == mIndex){
-           total += 1;
-           ((VisionChecked)getActivity()).setTotal(total);
-           next();
-       }else {
-           error();
-       }
+        if (startB == true) {
+            if (v.getId() == mIndex) {
+                total += 1;
+                ((VisionChecked) getActivity()).setTotal(total);
+                next();
+            } else {
+                error();
+            }
+        }
     }
-
-
-
 
     private void next(){
         step ++;

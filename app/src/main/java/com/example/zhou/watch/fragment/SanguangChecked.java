@@ -21,6 +21,7 @@ public class SanguangChecked extends Fragment implements View.OnClickListener{
     private Button sameButton;
     private Button wrongButton;
     private Button submitButton;
+    private boolean mBoolean;
 
     @Nullable
     @Override
@@ -43,13 +44,14 @@ public class SanguangChecked extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.submit_button:
-                if(sameButton.getTextColors().equals(0xffFF5d42)){
+                if(mBoolean == true){
                     ((VisionChecked)getActivity()).replaceFragment(new SanGuangCheck1());
                 }else {
                     ((VisionChecked)getActivity()).replaceFragment(new sanGuangCheck2());
                 }
 
             case R.id.three_button:
+                mBoolean = false;
                 threeButton.setTextColor(0xffFF5d42);
                 sixButton.setTextColor(0xff333333);
                 sameButton.setTextColor(0xff333333);
@@ -64,6 +66,7 @@ public class SanguangChecked extends Fragment implements View.OnClickListener{
                 wrongButton.setBackgroundResource(R.drawable.touming);
                 break;
             case R.id.six_button:
+                mBoolean = false;
                 sixButton.setTextColor(0xffFF5d42);
                 threeButton.setTextColor(0xff333333);
                 sameButton.setTextColor(0xff333333);
@@ -78,6 +81,7 @@ public class SanguangChecked extends Fragment implements View.OnClickListener{
                 wrongButton.setBackgroundResource(R.drawable.touming);
                 break;
             case R.id.same_button:
+                mBoolean = true;
                 sameButton.setTextColor(0xffFF5d42);
                 sixButton.setTextColor(0xff333333);
                 threeButton.setTextColor(0xff333333);
@@ -92,6 +96,7 @@ public class SanguangChecked extends Fragment implements View.OnClickListener{
                 wrongButton.setBackgroundResource(R.drawable.touming);
                 break;
             case R.id.wrong_button:
+                mBoolean = false;
                 wrongButton.setTextColor(0xffFF5d42);
                 sixButton.setTextColor(0xff333333);
                 sameButton.setTextColor(0xff333333);
