@@ -28,6 +28,7 @@ public class BreathChecked extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_breath_checked);
         breathBack = (Button) findViewById(R.id.breath_back);
+        breathBack.setOnClickListener(this);
         replaceBreathFragment(new BreathChecked1());
 
     }

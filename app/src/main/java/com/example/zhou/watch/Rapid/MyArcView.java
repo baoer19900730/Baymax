@@ -41,14 +41,19 @@ public class MyArcView extends android.support.v7.widget.AppCompatTextView {
        //圆角弧，起点和终点都是半圆
 
         mPaintGray2.setAntiAlias(true);
-        mPaintGray2.setStrokeWidth(20);
+        mPaintGray2.setStrokeWidth(20);  //设置空心线宽度
         mPaintGray2.setColor(0xffEEEEEE);
-        mPaintGray2.setStyle(Paint.Style.STROKE);
+        mPaintGray2.setStyle(Paint.Style.STROKE);  //设置空心圆
 
         mPaintWhite.setAntiAlias(true);
         mPaintWhite.setStrokeWidth(30);
         mPaintWhite.setColor(0xffFFFFFF);
         //mPaintWhite.setStyle(Paint.Style.STROKE); //画实心的弧，和画圆一样的效果
+
+        mPaintOrange.setAntiAlias(true);
+        mPaintOrange.setColor(0xfffe7f41);
+        mPaintOrange.setStrokeWidth(30);
+        mPaintOrange.setStyle(Paint.Style.STROKE);
     }
 
     public void  setDegree(float degree){

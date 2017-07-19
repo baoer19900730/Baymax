@@ -49,18 +49,18 @@ public class HeartChecked1 extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.zero_score:
-                ++total;
+                total += 1;
                 break;
             case R.id.two_score:
-                ++total;
+                total += 1;
                 score += 2;
                 break;
             case R.id.four_score:
-                ++total;
+                total += 1;
                 score += 4;
                 break;
             case R.id.six_score:
-                ++total;
+                total += 1;
                 score += 6;
                 break;
             case R.id.heart_start:

@@ -23,7 +23,7 @@ import java.util.TimerTask;
 public class BreathChecked1 extends Fragment implements View.OnClickListener{
     private Button breathStart;
     private MyRectangle breathRound;
-    private int time = 30;
+    private int time = 60;
     private Timer timer;
 
     private Handler handler = new Handler() {
@@ -33,8 +33,8 @@ public class BreathChecked1 extends Fragment implements View.OnClickListener{
             if (msg.what == 1){
                     breathRound.setText(time+"s");
                 if (time <= 0){
-                    timer.cancel();
                     ((BreathChecked)getActivity()).replaceBreathFragment(new BreathChecked2());
+                    timer.cancel();
                 }
             }
         }
@@ -62,7 +62,7 @@ public class BreathChecked1 extends Fragment implements View.OnClickListener{
     }
     private void animor(){
         ObjectAnimator an = ObjectAnimator.ofFloat(breathRound, "degree", 0, 360);
-        an.setDuration(30000);
+        an.setDuration(60000);
         an.start();
     }
 
