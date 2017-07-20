@@ -37,8 +37,10 @@ public class BreathChecked extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.breath_back:
-                Intent earIntent = new Intent(BreathChecked.this, MainActivity.class);
-                startActivity(earIntent);
+                finish();
+                //TODO -> 为什么不用finish掉本身，而频繁地启用intent创建对象？
+                /*Intent earIntent = new Intent(BreathChecked.this, MainActivity.class);
+                startActivity(earIntent);*/
                 break;
         }
     }

@@ -11,7 +11,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.zhou.watch.R;
-import com.oudmon.algo.ppg.BreathAnalyzer;
+import com.oudmon.algo.breath.BreathAnalyzer;
+
+import java.io.File;
 
 /**
  * Created by zhou on 2017/7/18.
@@ -35,8 +37,11 @@ public class BreathChecked2 extends Fragment {
         breathScore = (TextView) view.findViewById(R.id.breath_total_score);
 
         breathAnalyzer = new BreathAnalyzer();
-//        int score = breathAnalyzer.breathRateFromWavFile(PATH + WAV_FILE_PATH);
-//        breathScore.setText(score + "次");
+        File file = new File(PATH + WAV_FILE_PATH);
+        if (file.exists()) {    //TODO -> 文件都不存在，不报错就有鬼了，你不会在调用算法之前，判断一下文件在不在么？
+            int score = breathAnalyzer.breathRateFromWavFile(PATH + WAV_FILE_PATH);
+            breathScore.setText(score + "次");
+        }
         breathAgain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

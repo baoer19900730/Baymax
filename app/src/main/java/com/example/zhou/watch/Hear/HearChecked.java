@@ -103,6 +103,9 @@ public class HearChecked extends AppCompatActivity implements View.OnClickListen
                 hearMin.setText("200");
                 decibel += 200;
                 hearMax.setText(decibel+"");
+
+                MediaPlayerUtils.playLoop(this, "audio_" + decibel + "hz.m4a"); //TODO -> 点了听得见就要播放呀,不播放的话，点下一首有什么意义
+
                 break;
         }
     }
@@ -162,6 +165,7 @@ public class HearChecked extends AppCompatActivity implements View.OnClickListen
             mRecordThread = null;
         }
         super.onPause();
+        MediaPlayerUtils.stop();    //TODO -> 在失去焦点的时候要停止播放，不然后台一直在播放
     }
 
     @Override

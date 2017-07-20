@@ -18,6 +18,10 @@ android {
             moduleName "PpgAlgo"  //生成的so名字
             abiFilters "armeabi", "armeabi-v7a", "x86", "x86_64"
         }
+        ndk {   //TODO -> 不会搞就复制一个呀，为什么不？
+            moduleName "Breath_V1_0_0"  //生成的so名字
+            abiFilters "armeabi", "armeabi-v7a", "x86", "x86_64"
+        }
     }
     buildTypes {
         release {

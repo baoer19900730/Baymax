@@ -1,4 +1,7 @@
-package com.oudmon.algo.ppg;
+
+
+//TODO -> 我发你的java文件的package明明是这个com.oudmon.algo.breath，你为什么要改他的包名，要放在ppg里面？？
+package com.oudmon.algo.breath;
 
 public class BreathAnalyzer {
 

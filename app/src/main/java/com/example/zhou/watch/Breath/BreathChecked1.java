@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,9 @@ import java.util.TimerTask;
  */
 
 public class BreathChecked1 extends Fragment implements View.OnClickListener{
+
+    private static final String TAG = "Breath";
+
     private Button breathStart;
     private MyRectangle breathRound;
     private int time = 60;
@@ -32,6 +36,9 @@ public class BreathChecked1 extends Fragment implements View.OnClickListener{
         public void handleMessage(Message msg) {
             if (msg.what == 1){
                     breathRound.setText(time+"s");
+
+                Log.i(TAG, "Handler Run.. time: " + time + ", Activity: " + getActivity());
+
                 if (time <= 0){
                     ((BreathChecked)getActivity()).replaceBreathFragment(new BreathChecked2());
                     timer.cancel();
@@ -71,10 +78,12 @@ public class BreathChecked1 extends Fragment implements View.OnClickListener{
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                    Message message = new Message();
+                    /*Message message = new Message();
                     message.what = 1;
-                    handler.sendMessage(message);
+                    handler.sendMessage(message);*/   //TODO -> 就只传一个what进去，为什么不用sendEmptyMessage方法
+                handler.sendEmptyMessage(1);    //TODO -> 为什么不用这个方法，而创建一个新的Message对象导致资源消耗？
                     time--;
+                Log.i(TAG, "Timer Run.. time: " + time);
 
             }
         }, 0, 1000);
