@@ -82,18 +82,17 @@ public class HearChecked extends AppCompatActivity implements View.OnClickListen
                 startActivity(earIntent);
                 break;
             case R.id.hear_start:
+                decibel = 200;
                 hearMax.setText("- -");
                 hearMin.setText("- -");
-                decibel = 0;
+                MediaPlayerUtils.playLoop(this, "audio_" + decibel + "hz.m4a");
                 hearStart.setVisibility(View.INVISIBLE);
                 hearAudibility.setVisibility(View.VISIBLE);
                 hearInaudibility.setVisibility(View.VISIBLE);
-                applyPermission();
+//                applyPermission();
                 break;
             case R.id.hear_inaudibility:
-                if (player != null) {
-                    player.stop();
-                }
+                MediaPlayerUtils.stop();
                 hearInaudibility.setVisibility(View.INVISIBLE);
                 hearAudibility.setVisibility(View.INVISIBLE);
                 hearStart.setVisibility(View.VISIBLE);
@@ -101,11 +100,9 @@ public class HearChecked extends AppCompatActivity implements View.OnClickListen
                 break;
             case R.id.hear_audibility:
                 hearMin.setText("200");
-                decibel += 200;
                 hearMax.setText(decibel+"");
-
+                decibel += 200;
                 MediaPlayerUtils.playLoop(this, "audio_" + decibel + "hz.m4a"); //TODO -> 点了听得见就要播放呀,不播放的话，点下一首有什么意义
-
                 break;
         }
     }
@@ -127,7 +124,6 @@ public class HearChecked extends AppCompatActivity implements View.OnClickListen
                 player = new MediaPlayer();
             }
             player.reset();
-
             player.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
             player.setLooping(true); //音乐循环播放
             player.prepare();

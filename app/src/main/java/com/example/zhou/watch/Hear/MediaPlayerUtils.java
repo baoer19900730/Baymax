@@ -64,7 +64,7 @@ public class MediaPlayerUtils {
     }
 
     public static void stop() {
-        if (mMediaPlayer.isPlaying()) {
+        if (mMediaPlayer != null &&  mMediaPlayer.isPlaying()) {
             mMediaPlayer.stop();
         }
     }

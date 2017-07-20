@@ -17,10 +17,10 @@ import android.view.View;
 public class MySiri extends View {
 
     private static final float MIN_AMPLITUDE = 0.0575f;
-    private float mPrimaryWidth = 1.0f;
-    private float mSecondaryWidth = 0.5f;
+    private float mPrimaryWidth = 2.0f;
+    private float mSecondaryWidth = 1.5f;
     private float mAmplitude = MIN_AMPLITUDE;
-    private int mWaveColor = Color.DKGRAY;
+    private int mWaveColor = Color.WHITE;
     private int mDensity = 2;
     private int mWaveCount = 5;
     private float mFrequency = 0.1875f;
