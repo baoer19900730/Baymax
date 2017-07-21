@@ -1,4 +1,4 @@
-package com.example.zhou.watch.Breath;
+package com.example.zhou.watch;
 
 import android.media.AudioFormat;
 import android.media.AudioRecord;
@@ -17,14 +17,13 @@ import java.util.Calendar;
 /**
  * Created by jxr20 on 2017/6/16
  */
-
-class AudioRecoderUtils implements Runnable {
+public class AudioRecoderUtils implements Runnable {
 
     private static final String TAG = "AudioRecoderUtils";
     //根目录
     private static final String DIRECTORY = Environment.getExternalStorageDirectory() + "/Watch/";
     //wav文件目录
-    static final String OUT_FILE_PATH = DIRECTORY + "/breath.wav";
+    protected static final String OUT_FILE_PATH = DIRECTORY + "/breath.wav";
     //pcm文件目录
     private static final String IN_FILE_PATH = DIRECTORY + "/breath.pcm";
 
@@ -57,7 +56,7 @@ class AudioRecoderUtils implements Runnable {
      * 初始化数据
      * @param callback 回调数据
      */
-    static void prepare(Callback callback) {
+    public  static void prepare(Callback callback) {
         File file = new File(DIRECTORY);
         if (!file.exists()) {
             file.mkdirs();
@@ -80,7 +79,7 @@ class AudioRecoderUtils implements Runnable {
         mCallback = callback;
     }
 
-    static void start() {
+   public static void start() {
         isRecording = true;
         mRecorder.startRecording();
     }
@@ -133,7 +132,7 @@ class AudioRecoderUtils implements Runnable {
     /**
      * 记录数据
      */
-    static void updateCallback(){
+   public static void updateCallback(){
         new Thread() {
             public void run() {
                 write();
@@ -178,12 +177,12 @@ class AudioRecoderUtils implements Runnable {
 
     }
 
-    static void stop() {
+   public  static void stop() {
         isRecording = false;
         mRecorder.stop();
     }
 
-    static void saveWavFile() {
+    public static void saveWavFile() {
         FileInputStream in;
         FileOutputStream out;
         long totalAudioLen;
@@ -201,7 +200,6 @@ class AudioRecoderUtils implements Runnable {
             while (in.read(data) != -1) {
                 out.write(data);
             }
-            in.close();
             out.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -279,7 +277,7 @@ class AudioRecoderUtils implements Runnable {
     /**
      * 用于回调数据，实时显示趋势
      */
-    interface Callback {
+    public interface Callback {
         /**
          * 更新数据
          * @param data 数据

@@ -28,14 +28,24 @@
         android:textSize="25sp"
         android:textColor="#fe7f41"
         android:gravity="center"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.example.zhou.watch.VitalityView
+            android:visibility="invisible"
+            android:id="@+id/breath_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/breath_start"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:background="@drawable/shape"
-        android:text="开始测量"
-        android:textColor="#ffff"
-        android:textSize="15sp" />
+        <Button
+            android:id="@+id/breath_start"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="@drawable/shape"
+            android:text="开始测量"
+            android:textColor="#ffff"
+            android:textSize="15sp" />
+    </FrameLayout>
+
 </LinearLayout>

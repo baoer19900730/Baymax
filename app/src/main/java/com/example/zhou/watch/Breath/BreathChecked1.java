@@ -6,14 +6,15 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.telecom.Call;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.zhou.watch.AudioRecoderUtils;
 import com.example.zhou.watch.R;
+import com.example.zhou.watch.VitalityView;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -27,6 +28,7 @@ public class BreathChecked1 extends Fragment implements View.OnClickListener,Aud
     private static final String TAG = "Breath";
 
     private Button breathStart;
+    private VitalityView breathView;
     private MyRectangle breathRound;
     private int time = 5;
     private Timer timer;
@@ -56,7 +58,7 @@ public class BreathChecked1 extends Fragment implements View.OnClickListener,Aud
         View view = inflater.inflate(R.layout.breath_checked1, container, false);
         breathStart = (Button)view.findViewById(R.id.breath_start);
         breathRound = (MyRectangle) view.findViewById(R.id.breath_round);
-
+        breathView = (VitalityView) view.findViewById(R.id.breath_view);
         breathStart.setOnClickListener(this);
         AudioRecoderUtils.prepare(this);
         return view;
@@ -65,6 +67,7 @@ public class BreathChecked1 extends Fragment implements View.OnClickListener,Aud
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.breath_start:
+                breathView.setVisibility(View.VISIBLE);
                 breathStart.setVisibility(View.INVISIBLE);
                 animor();
                 countdown();
@@ -99,5 +102,13 @@ public class BreathChecked1 extends Fragment implements View.OnClickListener,Aud
     @Override
     public void onUpdate(double data) {
         AudioRecoderUtils.updateCallback();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (timer!= null){
+            timer.cancel();
+        }
     }
 }

@@ -65,6 +65,7 @@ public class MingGD extends Fragment implements View.OnClickListener {
         View view = inflater.inflate(R.layout.minggd_checked, container, false);
         mTable = (TableLayout) view.findViewById(R.id.table);
         start = (Button) view.findViewById(R.id.start_checked);
+        mTimer = new Timer();
         initButton();
         start.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,7 +81,7 @@ public class MingGD extends Fragment implements View.OnClickListener {
     }
 
     private void countdown(){
-        mTimer = new Timer();
+
         mTimer.schedule(new TimerTask() {
             @Override
             public void run() {
@@ -101,6 +102,13 @@ public class MingGD extends Fragment implements View.OnClickListener {
         mIndex = random.nextInt(step * step);
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (mTimer != null){
+            mTimer.cancel();
+        }
+    }
 
     @Override
     public void onClick(View v) {

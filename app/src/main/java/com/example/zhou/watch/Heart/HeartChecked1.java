@@ -49,37 +49,39 @@ public class HeartChecked1 extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.zero_score:
+                Log.d("1", "" + total );
                 total += 1;
                 break;
             case R.id.two_score:
+                Log.d("2", "" + total );
                 total += 1;
                 score += 2;
                 break;
             case R.id.four_score:
+                Log.d("3", "" + total );
                 total += 1;
                 score += 4;
                 break;
             case R.id.six_score:
+                Log.d("4", "" + total );
                 total += 1;
                 score += 6;
                 break;
             case R.id.heart_start:
-                Log.d("做了多少题目", "" + total );
-                Log.d("的了多少分", "" + score );
-                if (total >= 10){
+//                if (total >= 10){
                     ((HeartChecked)getActivity()).replaceHeart(new HeartChecked2());
-                }else {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                    builder.setTitle("Alert");
-                    builder.setMessage("请做完题目");
-                    builder.setCancelable(false);
-                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                        }
-                    });
-                    builder.show();
-                }
+//                }else {
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//                    builder.setTitle("Alert");
+//                    builder.setMessage("请做完题目");
+//                    builder.setCancelable(false);
+//                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//                        }
+//                    });
+//                    builder.show();
+//                }
                 break;
             default:
                 break;
