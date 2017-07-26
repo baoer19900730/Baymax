@@ -1,10 +1,12 @@
 package com.example.zhou.watch.Heart;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.util.SparseIntArray;
 import android.view.LayoutInflater;
@@ -29,7 +31,7 @@ import butterknife.Unbinder;
  * Created by zhou on 2017/7/13
  */
 
-public class HeartChecked1 extends Fragment implements View.OnClickListener {
+public class HeartChecked1 extends Fragment  {
 
     private static final String TAG = "Baymax";
 
@@ -72,8 +74,9 @@ public class HeartChecked1 extends Fragment implements View.OnClickListener {
 
     /**
      * //TODO 你这样子写，是根据无法区分是点击了哪一项，根据没有任何作用。
-     * @param v
+     * @param
      */
+/*
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -97,26 +100,27 @@ public class HeartChecked1 extends Fragment implements View.OnClickListener {
                 score += 6;
                 break;
             case R.id.heart_start:
-//                if (total >= 10){
+                if (total >= 10){
                 ((HeartChecked) getActivity()).replaceHeart(new HeartChecked2());
-//                }else {
-//                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-//                    builder.setTitle("Alert");
-//                    builder.setMessage("请做完题目");
-//                    builder.setCancelable(false);
-//                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialog, int which) {
-//                        }
-//                    });
-//                    builder.show();
-//                }
+                }else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setTitle("Alert");
+                    builder.setMessage("请做完题目");
+                    builder.setCancelable(false);
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                        }
+                    });
+                    builder.show();
+                }
                 break;
             default:
                 break;
 
         }
     }
+*/
 
     @Override
     public void onDestroyView() {
@@ -124,18 +128,33 @@ public class HeartChecked1 extends Fragment implements View.OnClickListener {
         unbinder.unbind();
     }
 
+
+
     @OnClick(R.id.submit)
     public void onViewClicked() {
         int score = 0;
         int size = mArrayMap.size();
-        if (size < 15) {
-            //TODO -> 拦截，不让提交过去
-        }
 
         for (int i = 0; i < size; i ++) {
             score += mArrayMap.valueAt(i);  //TODO -> 将所有选项的分数累加，这个score可以作为答案传递到下一页
         }
+        ((HeartChecked)getActivity()).setScore(score);
         Log.i(TAG, "onViewClicked.. size: " + size + ", score: " + score);
+
+        if (size < 15) {
+            //TODO -> 拦截，不让提交过去
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setTitle("Alert");
+            builder.setMessage("请做完题目");
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                }
+            });
+            builder.show();
+        }else {
+            ((HeartChecked) getActivity()).replaceHeart(new HeartChecked2());
+        }
     }
 
 

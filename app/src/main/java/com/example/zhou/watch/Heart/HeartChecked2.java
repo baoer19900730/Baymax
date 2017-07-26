@@ -26,7 +26,8 @@ public class HeartChecked2 extends Fragment {
        View view = inflater.inflate(R.layout.heart_checked2, container, false);
         again = (Button) view.findViewById(R.id.heart_again);
         score = (TextView) view.findViewById(R.id.total_score);
-//        score.setText(((HeartChecked)getActivity()).getScore() + "分");
+
+        score.setText( ((HeartChecked)getActivity()).getScore() +"分");
         again.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

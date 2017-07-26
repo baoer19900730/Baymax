@@ -33,6 +33,7 @@ public class VitalityView extends View implements AudioRecoderUtils.Callback {
 
     private boolean isAlive = false;
     private Paint mPaint;
+    private Paint mPaint1;
 
     private long mSpeedX = 0;
     private ArrayList<PointF> mPointArray;
@@ -49,6 +50,12 @@ public class VitalityView extends View implements AudioRecoderUtils.Callback {
     }
 
     private void init() {
+        mPaint1 = new Paint();
+        mPaint1.setColor(0xff00DB00);
+        mPaint1.setAntiAlias(true);
+        mPaint1.setStyle(Paint.Style.STROKE);
+        mPaint1.setStrokeWidth(3);
+
         mPaint = new Paint();
         mPaint.setColor(0xffFF5d42);
         mPaint.setAntiAlias(true);
@@ -93,14 +100,14 @@ public class VitalityView extends View implements AudioRecoderUtils.Callback {
             mPointArray.remove(0);
         }
 
-        canvas.save();
-        canvas.translate(mSpeedX, 0);
+        canvas.save();//锁画布(为了保存之前的画布状态)
+        canvas.translate(mSpeedX, 0);//把当前画布的原点移到(x,y),后面的操作都以(x,y)作为参照点，默认原点为(0,0)
         for (int i = mPointArray.size() - 1; i >= 0; i --) {
-            PointF p = mPointArray.get(i);
-            canvas.drawLine(p.x, p.y, p.x, getHeight() / 2, mPaint);
+            PointF p = mPointArray.get(i); //PointF是定义坐标为float型数
+            canvas.drawLine(p.x, p.y, p.x, getHeight() / 2, mPaint1);//许多竖线
         }
-        canvas.restore();
-        canvas.drawLine(0, getHeight() / 2, getWidth(), getHeight() / 2, mPaint);
+        canvas.restore();//把当前画布返回（调整）到上一个save()状态之前
+        canvas.drawLine(0, getHeight() / 2, getWidth(), getHeight() / 2, mPaint);//一条直线
 
         mSpeedX += 8;
     }

@@ -107,16 +107,16 @@ public class HearChecked extends AppCompatActivity implements View.OnClickListen
         }
     }
 
-    private void applyPermission(){  //申请权限
+/*    private void applyPermission(){  //申请权限
         if(ContextCompat.checkSelfPermission(HearChecked.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(HearChecked.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
         }else {
           initMedia();
         }
-    }
+    }*/
 
-    private void initMedia(){  //准备播放音频
+/*    private void initMedia(){  //准备播放音频
         try {
             AssetManager assetManager = this.getAssets();
             AssetFileDescriptor afd = assetManager.openFd("audio_200hz.m4a");
@@ -131,8 +131,8 @@ public class HearChecked extends AppCompatActivity implements View.OnClickListen
         }catch (Exception e){
             e.printStackTrace();
         }
-    }
-
+    }*/
+/*
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode){
@@ -143,7 +143,7 @@ public class HearChecked extends AppCompatActivity implements View.OnClickListen
                     Toast.makeText(HearChecked.this, "拒绝访问", Toast.LENGTH_SHORT).show();
                 }
         }
-    }
+    }*/
 
     @Override
     protected void onResume() {
@@ -168,7 +168,7 @@ public class HearChecked extends AppCompatActivity implements View.OnClickListen
     protected void onDestroy() {
         if (player != null){
             player.stop();
-            player.release();
+            player.release();//release()方法后处于结束状态
         }
         super.onDestroy();
     }
