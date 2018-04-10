@@ -59,7 +59,7 @@ public class AudioRecoderUtils implements Runnable {
     public  static void prepare(Callback callback) {
         File file = new File(DIRECTORY);
         if (!file.exists()) {
-            file.mkdirs();
+            file.mkdirs();  //创建目录
         }
         pcmFile = new File(IN_FILE_PATH);
         wavFile = new File(OUT_FILE_PATH);
@@ -155,7 +155,7 @@ public class AudioRecoderUtils implements Runnable {
                     for (byte b : noteArray) {
                         voice += b * b;
                     }
-                    mCallback.onUpdate(20 * Math.log10(voice * 1.0 / recordSize));    //回调数据
+                    mCallback.onUpdate(20 * Math.log10(voice * 1.0 / recordSize)); //回调数据，Math.log10（）返回一个以10为底的double类型数。
                     os.write(noteArray);
                 } catch (IOException e) {
                     e.printStackTrace();

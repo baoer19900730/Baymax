@@ -53,7 +53,7 @@ public class MediaPlayerUtils {
             if (mMediaPlayer == null) {
                 mMediaPlayer = new MediaPlayer();
             }
-            mMediaPlayer.reset();
+            mMediaPlayer.reset();  //让它处于空闲状态
             mMediaPlayer.setDataSource(fileDescriptor.getFileDescriptor(), fileDescriptor.getStartOffset(), fileDescriptor.getLength());
             mMediaPlayer.setLooping(true);
             mMediaPlayer.prepare();

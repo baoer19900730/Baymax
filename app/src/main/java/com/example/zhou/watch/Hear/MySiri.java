@@ -17,14 +17,14 @@ import android.view.View;
 public class MySiri extends View {
 
     private static final float MIN_AMPLITUDE = 0.0575f;
-    private float mPrimaryWidth = 2.0f;
-    private float mSecondaryWidth = 1.5f;
-    private float mAmplitude = MIN_AMPLITUDE;
+    private float mPrimaryWidth = 2.0f; //主要线的宽度
+    private float mSecondaryWidth = 1.5f;//第二条线的宽度
+    private float mAmplitude = MIN_AMPLITUDE; //幅度
     private int mWaveColor = Color.WHITE;
-    private int mDensity = 2;
-    private int mWaveCount = 5;
-    private float mFrequency = 0.1875f;
-    private float mPhaseShift = -0.1875f;
+    private int mDensity = 2;   // 密度
+    private int mWaveCount = 5; //破浪总数
+    private float mFrequency = 0.1875f; //频率
+    private float mPhaseShift = -0.1875f; //相移
     private float mPhase = mPhaseShift;
 
     private Paint mPrimaryPaint;

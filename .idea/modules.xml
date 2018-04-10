@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Baymax.iml" filepath="$PROJECT_DIR$/Baymax.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Watch.iml" filepath="$PROJECT_DIR$/Watch.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

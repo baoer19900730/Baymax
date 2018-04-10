@@ -30,7 +30,7 @@ public class BreathChecked1 extends Fragment implements View.OnClickListener,Aud
     private Button breathStart;
     private VitalityView breathView;
     private MyRectangle breathRound;
-    private int time = 5;
+    private int time = 60;
     private Timer timer;
 
     private Handler handler = new Handler() {
@@ -78,7 +78,7 @@ public class BreathChecked1 extends Fragment implements View.OnClickListener,Aud
     }
     private void animor(){
         ObjectAnimator an = ObjectAnimator.ofFloat(breathRound, "degree", 0, 360);
-        an.setDuration(5000);
+        an.setDuration(60000);
         an.start();
     }
 

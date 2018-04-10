@@ -16,7 +16,7 @@ public class HeartChecked extends AppCompatActivity {
 
     private Button heartBack;
     private HeartChecked1 heartChecked1;
-    private int sCore;
+    private int score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +41,11 @@ public class HeartChecked extends AppCompatActivity {
         transaction.commit();
     }
 
-//    public int getScore(){
-//        sCore = heartChecked1.scroe;
-//        return sCore;
-//    }
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
 }

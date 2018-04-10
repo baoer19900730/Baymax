@@ -30,7 +30,7 @@ public class LungChecked1 extends Fragment implements View.OnClickListener, Audi
     private TextView lungStart;
     private ImageView lungWind;
     private VitalityView lungView;
-    private int time = 50;
+    private int time = 100;
     private Timer timer;
     private   ObjectAnimator animator;
     private boolean isClick;

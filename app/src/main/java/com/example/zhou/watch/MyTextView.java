@@ -35,8 +35,6 @@ public class MyTextView extends android.support.v7.widget.AppCompatTextView{
         canvas.drawCircle(wi/2, hi/2, 186, pa3);
         canvas.drawCircle(wi/2, hi/2, 170, pa4);
 
-
-
         super.onDraw(canvas);
     }
 }
